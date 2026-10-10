@@ -901,7 +901,7 @@ body:has(#tab-sql-lab.active) .container { width: calc(100% - 330px) !important;
 
 .sql-example-explanation{margin-top:12px;padding:12px;border:1px solid var(--border);border-radius:9px;background:var(--bg);font-size:.88rem;line-height:1.5}.sql-example-explanation strong{color:var(--accent3)}.sql-example-explanation p{margin:7px 0 0}.sql-example-explanation h4{margin:14px 0 6px;font-size:.92rem}.sql-example-code{white-space:pre-wrap;overflow-wrap:anywhere;padding:12px;border-radius:8px;border:1px solid var(--border);background:var(--code-bg);color:var(--example-code);font-size:.88rem;line-height:1.55;overflow:auto}.sql-example-code code{white-space:pre-wrap}.sql-side-tabs{display:flex;gap:6px;padding:5px;background:var(--card-hover);border:1px solid var(--border);border-radius:10px;margin-bottom:14px}.sql-side-tab{flex:1;border:1px solid transparent;border-radius:7px;padding:9px 7px;background:transparent;color:var(--muted);font-weight:700;cursor:pointer}.sql-side-tab.active{background:var(--bg);border-color:var(--border);color:var(--text);box-shadow:0 1px 3px #0002}.sql-side-panel[hidden]{display:none!important}#sql-lab-db,#sql-lab-example{appearance:auto;min-height:42px;padding:10px 12px;border-radius:9px;background:var(--bg);border:1px solid var(--border);color:var(--text);font-size:.92rem;box-shadow:0 1px 2px #0001}#sql-lab-example optgroup{font-weight:700;color:var(--accent3)}#sql-lab-example option{padding:5px}
 
-.sql-main-tabs{display:flex;gap:8px;margin:0 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)}.sql-main-tab{border:1px solid var(--border);border-radius:8px;padding:9px 14px;background:var(--card-hover);color:var(--text);font-weight:700;cursor:pointer}.sql-main-tab.active{background:var(--accent);color:#071018;border-color:transparent}.sql-formatter-options{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0}.sql-formatter-options label{margin:0!important}.sql-formatter-options select,#sql-format-input,#sql-format-output{box-sizing:border-box;background:#10151d;color:#f1f5f9;border:1px solid #455468;border-radius:8px;padding:10px;font:14px/1.6 Consolas,monospace}#sql-format-input,#sql-format-output{display:block;width:100%;resize:vertical;tab-size:2;margin:8px 0 12px;min-height:180px}#sql-format-output{min-height:220px}#sql-format-status{padding:10px 12px;border-radius:8px;background:var(--bg);color:var(--muted)}#sql-format-status.error{color:#e58f91;border:1px solid #b74343}#sql-main-formatter-panel[hidden],#sql-main-editor-panel[hidden]{display:none!important}
+.sql-main-tabs{display:flex;gap:8px;margin:0 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)}.sql-main-tab{border:1px solid var(--border);border-radius:8px;padding:9px 14px;background:var(--card-hover);color:var(--text);font-weight:700;cursor:pointer}.sql-main-tab.active{background:var(--accent);color:#071018;border-color:transparent}.sql-formatter-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 12px;margin:12px 0;padding:14px;border:1px solid var(--border);border-radius:12px;background:var(--card-hover)}.sql-format-option{display:flex;flex-direction:column;gap:5px;min-width:0}.sql-formatter-options label{margin:0!important;font-size:.82rem;font-weight:700;color:var(--muted);line-height:1.35}.sql-formatter-options select,#sql-format-input,#sql-format-output{box-sizing:border-box;background:#10151d;color:#f1f5f9;border:1px solid #455468;border-radius:8px;padding:8px 10px;font:13px/1.45 Consolas,monospace}.sql-formatter-options select{width:100%;min-width:0;min-height:38px}.sql-formatter-options .sql-format-check{display:flex;align-items:center;gap:8px;align-self:center;color:var(--text);font-size:.82rem;font-weight:500}.sql-formatter-options .sql-format-check input{width:auto;margin:0}.sql-formatter-options .sql-format-check input{accent-color:var(--accent)}.sql-formatter-options .sql-format-check{grid-column:1 / -1}#sql-format-input,#sql-format-output{display:block;width:100%;resize:vertical;tab-size:2;margin:8px 0 12px;min-height:180px}#sql-format-output{min-height:220px}.sql-formatter-options .sql-format-check{display:flex;align-items:center;gap:7px}.sql-formatter-options .sql-format-check input{width:auto;margin:0}#sql-format-status{padding:10px 12px;border-radius:8px;background:var(--bg);color:var(--muted)}#sql-format-status.error{color:#e58f91;border:1px solid #b74343}#sql-main-formatter-panel[hidden],#sql-main-editor-panel[hidden]{display:none!important}
 
 /* Адаптация справочника и SQL-инструментов для планшетов и телефонов */
 @media (max-width: 900px) {
@@ -920,8 +920,10 @@ body:has(#tab-sql-lab.active) .container { width: calc(100% - 330px) !important;
   .sql-main-tab, .sql-side-tab { min-width: 0; padding: 10px 7px; font-size: .86rem; }
   .sql-lab-actions { display: grid; grid-template-columns: minmax(0, 1fr); }
   .sql-lab-actions button { width: 100%; min-height: 42px; }
-  .sql-formatter-options { display: grid; grid-template-columns: minmax(0, 1fr); align-items: stretch; }
-  .sql-formatter-options select { width: 100%; min-height: 42px; }
+  .sql-formatter-options { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; padding: 10px; }
+  .sql-formatter-options .sql-format-check { grid-column: 1 / -1; align-self: start; }
+  .sql-formatter-options select { width: 100%; min-height: 40px; font-size: 12px; }
+  .sql-format-option label { min-height: 2.2em; }
   #sql-format-input, #sql-format-output { min-height: 150px; font-size: 13px; }
   #tab-sql-lab #sql-lab-query { min-height: 240px; font-size: 13px; padding: 10px; }
   .sql-editor-highlight { padding: 10px; font-size: 13px; }
@@ -986,6 +988,46 @@ body:has(#tab-sql-lab.active) .container { width: calc(100% - 330px) !important;
 }
 #tab-sql-lab .sql-lab-actions button{min-height:40px}
 </style>
+
+<style id="stepik-notes-styles">
+  /* Заметки по прохождению курса Stepik */
+  #stepik-notes { margin: 34px auto 28px; padding: 0; scroll-margin-top: 24px; }
+  #stepik-notes .stepik-notes__header { padding: 24px 26px; border: 1px solid var(--border); border-radius: 16px 16px 0 0; background: linear-gradient(135deg, var(--card), var(--card-hover)); }
+  #stepik-notes .stepik-notes__eyebrow { margin: 0 0 8px; color: var(--accent); font-size: .78rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+  #stepik-notes h2 { margin: 0 0 10px; font-size: clamp(1.45rem, 2.4vw, 2rem); }
+  #stepik-notes .stepik-notes__lead { max-width: 900px; margin: 0; color: var(--muted); line-height: 1.65; }
+  #stepik-notes .stepik-notes__body { padding: 22px; border: 1px solid var(--border); border-top: 0; border-radius: 0 0 16px 16px; background: var(--card); }
+  #stepik-notes .stepik-notes-toc { margin: 0 0 24px; padding: 16px 18px; border: 1px solid var(--border); border-radius: 12px; background: var(--card-hover); }
+  #stepik-notes .stepik-notes-toc h3 { margin: 0 0 10px; font-size: 1.05rem; }
+  #stepik-notes .stepik-notes-toc ul { margin: 6px 0; padding-left: 1.3rem; }
+  #stepik-notes .stepik-notes-toc li { margin: 4px 0; }
+  #stepik-notes .stepik-notes-toc ul ul { margin-top: 4px; }
+  #stepik-notes .stepik-notes-toc a { text-decoration: none; }
+  #stepik-notes .stepik-notes-toc a:hover { text-decoration: underline; }
+  #stepik-notes .stepik-topic { margin: 0 0 24px; }
+  #stepik-notes .stepik-topic:last-child { margin-bottom: 0; }
+  #stepik-notes h3 { margin: 0 0 12px; }
+  #stepik-notes h4 { margin: 18px 0 8px; }
+  #stepik-notes p, #stepik-notes li { line-height: 1.65; }
+  #stepik-notes ul, #stepik-notes ol { padding-left: 1.35rem; }
+  #stepik-notes .stepik-note-card { margin: 14px 0; padding: 14px 16px; border: 1px solid var(--border); border-left: 4px solid var(--accent3); border-radius: 10px; background: var(--card-hover); }
+  #stepik-notes .stepik-note-card > :last-child { margin-bottom: 0; }
+  #stepik-notes .stepik-note-card__label { display: block; margin-bottom: 6px; color: var(--accent3); font-size: .78rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+  #stepik-notes .stepik-important { margin: 14px 0; padding: 14px 16px; border: 1px solid rgba(255, 208, 128, .45); border-radius: 10px; background: rgba(255, 208, 128, .08); }
+  #stepik-notes .stepik-important strong { color: var(--accent2); }
+  #stepik-notes .stepik-code { margin: 12px 0; }
+  #stepik-notes .stepik-code pre { overflow-x: auto; padding: 14px 16px; border: 1px solid var(--border); border-radius: 10px; background: var(--code-bg); }
+  #stepik-notes .stepik-code code { white-space: pre; }
+  #stepik-notes .stepik-table-wrap { overflow-x: auto; margin: 12px 0; }
+  #stepik-notes table { width: 100%; border-collapse: collapse; }
+  #stepik-notes th, #stepik-notes td { padding: 9px 11px; border: 1px solid var(--border); text-align: left; vertical-align: top; }
+  #stepik-notes th { background: var(--card-hover); }
+  #stepik-notes .stepik-source { margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--border); color: var(--muted); font-size: .9rem; }
+  #stepik-notes a { overflow-wrap: anywhere; }
+  @media (max-width: 700px) { #stepik-notes .stepik-notes__header, #stepik-notes .stepik-notes__body { padding: 16px; } }
+</style>
+
+<style id="sql-created-table-result-style">.sql-created-table-result{margin-top:14px;padding:14px;border:1px solid var(--accent);border-radius:10px;background:var(--card-hover)}.sql-created-table-result>strong{color:var(--accent)}.sql-created-table-result table{width:100%;border-collapse:collapse}.sql-created-table-result th,.sql-created-table-result td{padding:8px 10px;text-align:left;border-bottom:1px solid var(--border)}</style>
 </head>
 <body>
 <nav aria-label="Основное оглавление" class="floating-toc">
@@ -1017,7 +1059,8 @@ body:has(#tab-sql-lab.active) .container { width: calc(100% - 330px) !important;
 </li>
 
 <li><a href="#tab-hh-tests">Проверка знаний на HH.ru</a></li>
-<li><a href="#tab-sql-lab">SQL - песочница и Formatter</a></li></ul>
+<li><a href="#tab-sql-lab">Песочница SQL/таблиц и Formatter</a></li>
+<li><a href="#stepik-notes">Заметки по прохождению курса от Stepik</a></li></ul>
 </nav>
 <div class="theme-control-wrap">
 <button aria-label="Переключить цветовую тему" class="theme-toggle" id="theme-toggle" type="button">
@@ -1041,7 +1084,8 @@ body:has(#tab-sql-lab.active) .container { width: calc(100% - 330px) !important;
 
 <button aria-controls="tab-dialects" aria-selected="false" class="tab-button" data-tab="tab-dialects" id="tab-btn-dialects" role="tab" type="button">SQL-диалекты</button>
 <button aria-controls="tab-practice" aria-selected="false" class="tab-button" data-tab="tab-practice" id="tab-btn-practice" role="tab" type="button">Практика · 40 вопросов</button>
-<button aria-controls="tab-hh-tests" aria-selected="false" class="tab-button" data-tab="tab-hh-tests" id="tab-btn-hh-tests" role="tab" type="button">Проверка знаний на HH.ru</button><button aria-controls="tab-sql-lab" aria-selected="false" class="tab-button" data-tab="tab-sql-lab" id="tab-btn-sql-lab" role="tab" type="button">SQL - песочница и Formatter</button>
+<button aria-controls="tab-hh-tests" aria-selected="false" class="tab-button" data-tab="tab-hh-tests" id="tab-btn-hh-tests" role="tab" type="button">Проверка знаний на HH.ru</button><button aria-controls="tab-sql-lab" aria-selected="false" class="tab-button" data-tab="tab-sql-lab" id="tab-btn-sql-lab" role="tab" type="button">Песочница SQL/таблиц и Formatter</button>
+<button aria-controls="stepik-notes" aria-selected="false" class="tab-button" data-tab="stepik-notes" id="tab-btn-stepik-notes" role="tab" type="button">Заметки по прохождению курса от Stepik</button>
 
 </div>
 <div aria-hidden="false" aria-labelledby="tab-btn-guide" class="tab-panel tab-panel active" id="tab-guide" role="tabpanel">
@@ -7332,7 +7376,7 @@ ORDER BY avg_salary DESC; <span class="sql-comment">/* сначала отдел
 </section>
 </div>
 <section aria-labelledby="tab-btn-sql-lab" class="tab-panel" id="tab-sql-lab" role="tabpanel">
-<h2>SQL-песочница</h2>
+<h2>Песочница SQL/таблиц и Formatter</h2>
 <p>Пиши запросы и запускай их прямо в справочнике. Всё работает локально в браузере: можно выбирать одну из 15 учебных баз, смотреть структуру таблиц и работать с наборами разного размера — от 60 до 200 строк в каждой таблице. Это настоящий движок SQLite в браузере (sql.js), а не сервер PostgreSQL. Синтаксис и функции PostgreSQL могут отличаться.</p>
 <div class="sql-lab-layout">
 <aside class="sql-lab-sidebar">
@@ -7343,30 +7387,345 @@ ORDER BY avg_salary DESC; <span class="sql-comment">/* сначала отдел
 <div aria-label="Таблицы выбранной базы данных" class="sql-lab-tables" id="sql-lab-tables"></div>
 </aside>
 <div class="sql-lab-main">
-<div aria-label="Редактор SQL и форматирование" class="sql-main-tabs" role="tablist"><button aria-selected="true" class="sql-main-tab active" data-main-tab="editor" type="button">SQL - песочница</button><button aria-selected="false" class="sql-main-tab" data-main-tab="formatter" type="button">SQL Formatter</button></div>
+<div aria-label="Инструменты SQL" class="sql-main-tabs" role="tablist"><button aria-selected="true" class="sql-main-tab active" data-main-tab="editor" type="button">SQL песочница</button><button aria-selected="false" class="sql-main-tab" data-main-tab="tables" type="button">SQL таблицы</button><button aria-selected="false" class="sql-main-tab" data-main-tab="formatter" type="button">SQL Formatter</button></div>
 <div id="sql-main-editor-panel">
 <div aria-label="Три SQL-запроса" class="sql-query-tabs" role="tablist"><button class="sql-query-tab active" data-query-tab="0" type="button">Запрос 1</button><button class="sql-query-tab" data-query-tab="1" type="button">Запрос 2</button><button class="sql-query-tab" data-query-tab="2" type="button">Запрос 3</button></div><label for="sql-lab-query"><strong>SQL-запрос</strong></label>
 <div class="sql-editor-wrap"><pre aria-hidden="true" class="sql-editor-highlight" id="sql-editor-highlight"></pre><textarea aria-label="Редактор SQL" id="sql-lab-query" rows="10" spellcheck="false">SELECT name, price
 FROM products
 WHERE price &lt; 100
 ORDER BY price ASC;</textarea></div>
-<div class="sql-lab-actions"><button id="sql-lab-run" title="Выполнить SQL на текущей учебной базе и показать результат" type="button">▶ Выполнить запрос</button><button class="sql-lab-secondary" id="sql-lab-reset" title="Очистить только текущий SQL-запрос" type="button">⌫ Очистить запрос</button><button class="sql-lab-secondary" id="sql-lab-reset-db" title="Восстановить исходные данные учебной базы" type="button">↻ Восстановить базу</button><button class="sql-lab-secondary" hidden="" id="sql-task-hint-top" type="button">Над чем подумать</button><button class="sql-lab-secondary" hidden="" id="sql-task-answer-top" type="button">Показать решение</button></div><div aria-label="Подсказки SQL" class="sql-completion" hidden="" id="sql-completion" role="listbox"></div><p class="sql-lab-help">Подсказки появляются при вводе префикса, например <code>SELE</code>. <kbd>Tab</kbd> вставляет первый вариант; <kbd>Ctrl</kbd> + <kbd>Space</kbd>, стрелки и <kbd>Enter</kbd> позволяют выбрать другой. Обычный <kbd>Enter</kbd> добавляет строку, <kbd>Ctrl</kbd> + <kbd>Enter</kbd> выполняет запрос. Подсказки учитывают таблицы и столбцы выбранной базы.</p>
+<div class="sql-lab-actions"><button id="sql-lab-run" title="Выполнить SQL на текущей учебной базе и показать результат" type="button">▶ Выполнить запрос</button><button class="sql-lab-secondary" id="sql-lab-reset" title="Очистить только текущий SQL-запрос" type="button">⌫ Очистить запрос</button><button class="sql-lab-secondary" id="sql-lab-reset-db" title="Восстановить исходные данные учебной базы" type="button">↻ Восстановить базу</button><button class="sql-lab-secondary" hidden="" id="sql-task-hint-top" type="button">Над чем подумать</button><button class="sql-lab-secondary" hidden="" id="sql-task-answer-top" type="button">Показать решение</button></div><div aria-label="Подсказки SQL" class="sql-completion" hidden="" id="sql-completion" role="listbox"></div><p class="sql-lab-help">Подсказки появляются при вводе префикса, например <code>SELE</code>. <kbd>Tab</kbd> вставляет первый вариант; <kbd>Ctrl</kbd> + <kbd>Space</kbd>, стрелки и <kbd>Enter</kbd> позволяют выбрать другой. Обычный <kbd>Enter</kbd> добавляет строку, <kbd>Ctrl</kbd> + <kbd>Enter</kbd> выполняет запрос. Подсказки учитывают таблицы и столбцы выбранной базы. Для собственных экспериментов используй вкладку «SQL таблицы»: она работает с отдельной базой и не меняет учебные данные.</p>
 <div aria-live="polite" id="sql-lab-status" role="status">Выбери базу и выполни запрос.</div>
 <div class="sql-lab-result" id="sql-lab-result"></div>
 </div>
 <div hidden="" id="sql-main-formatter-panel">
 <h3>Форматирование SQL</h3>
 <p class="sql-lab-help">Приводит запрос к единому читаемому стилю: ключевые слова заглавными буквами, основные части запроса с новой строки, списки столбцов и вложенные выражения с отступами. Форматирование меняет внешний вид, но не исправляет логику запроса.</p>
-<div class="sql-formatter-options"><label for="sql-format-dialect">Диалект базы</label><select id="sql-format-dialect"><option value="sql">Standard SQL</option><option value="postgresql">PostgreSQL</option><option value="sqlite">SQLite</option><option value="mysql">MySQL</option><option value="mariadb">MariaDB</option><option value="transactsql">SQL Server (T-SQL)</option><option value="bigquery">BigQuery</option><option value="plsql">Oracle PL/SQL</option></select><label for="sql-format-indent">Отступ</label><select id="sql-format-indent"><option value="2">2 пробела</option><option value="4">4 пробела</option><option value="tab">Табуляция</option></select></div>
+<div class="sql-formatter-options" aria-label="Настройки SQL Formatter">
+<div class="sql-format-option"><label for="sql-format-dialect">Диалект</label><select id="sql-format-dialect" title="Выбирает грамматику SQL для выбранной СУБД"><option value="sql">Standard SQL</option><option value="postgresql">PostgreSQL</option><option value="sqlite">SQLite</option><option value="mysql">MySQL</option><option value="mariadb">MariaDB</option><option value="tsql">SQL Server (T-SQL)</option><option value="bigquery">BigQuery</option><option value="plsql">Oracle PL/SQL</option></select></div>
+<div class="sql-format-option"><label for="sql-format-indent">Отступ</label><select id="sql-format-indent"><option value="2" selected>2 пробела · обычно</option><option value="4">4 пробела</option><option value="tab">Табуляция</option></select></div>
+<div class="sql-format-option"><label for="sql-format-keywords">Ключевые слова · SELECT, FROM</label><select id="sql-format-keywords"><option value="upper" selected>ЗАГЛАВНЫЕ</option><option value="lower">строчные</option><option value="preserve">Как в исходнике</option></select></div>
+<div class="sql-format-option"><label for="sql-format-functions">Функции</label><select id="sql-format-functions"><option value="upper" selected>ЗАГЛАВНЫЕ</option><option value="lower">строчные</option><option value="preserve">Как в исходнике</option></select></div>
+<div class="sql-format-option"><label for="sql-format-types">Типы данных · INTEGER, TEXT</label><select id="sql-format-types"><option value="upper" selected>ЗАГЛАВНЫЕ</option><option value="lower">строчные</option><option value="preserve">Как в исходнике</option></select></div>
+<div class="sql-format-option"><label for="sql-format-identifiers">Имена таблиц и полей</label><select id="sql-format-identifiers"><option value="preserve" selected>Как в исходнике · безопасно</option><option value="lower">строчные</option><option value="upper">ЗАГЛАВНЫЕ</option></select></div>
+<div class="sql-format-option"><label for="sql-format-logic">AND / OR</label><select id="sql-format-logic"><option value="before" selected>С новой строки перед оператором</option><option value="after">В конце строки</option></select></div>
+<div class="sql-format-option"><label for="sql-format-indent-style">Стиль отступов</label><select id="sql-format-indent-style"><option value="standard" selected>Каскадный · стандартный</option><option value="tabularLeft">Ключевые слова слева</option><option value="tabularRight">Ключевые слова справа</option></select></div>
+<div class="sql-format-option"><label for="sql-format-width">Ширина строки</label><select id="sql-format-width"><option value="30">30 символов</option><option value="50">50 символов</option><option value="80" selected>80 символов · обычно</option><option value="120">120 символов</option></select></div>
+<div class="sql-format-option"><label for="sql-format-lines">Пустых строк между запросами</label><select id="sql-format-lines"><option value="0">Нет</option><option value="1" selected>Одна</option><option value="2">Две</option></select></div>
+<label class="sql-format-check" for="sql-format-dense"><input id="sql-format-dense" type="checkbox"> Уплотнять пробелы вокруг операторов</label>
+<label class="sql-format-check" for="sql-format-semicolon"><input id="sql-format-semicolon" type="checkbox"> Переносить ; на отдельную строку</label>
+</div><p class="sql-lab-help">Диалект задаёт правила разбора синтаксиса конкретной СУБД: например, обратные кавычки MySQL, квадратные скобки T-SQL или специфичные функции. На обычных SELECT-запросах результат может выглядеть одинаково — диалект не обязан менять отступы. Регистр, стиль отступов, ширина выражений и переносы настраиваются отдельно.</p>
 <label for="sql-format-input"><strong>Исходный SQL</strong></label><textarea id="sql-format-input" placeholder="Вставь сюда SQL-запрос…" rows="12" spellcheck="false">select name, price, dense_rank() over (order by price desc) as price_rank from products;</textarea>
 <div class="sql-lab-actions"><button id="sql-format-run" type="button">✨ Форматировать SQL</button><button class="sql-lab-secondary" id="sql-format-from-editor" type="button">Взять запрос из песочницы</button><button class="sql-lab-secondary" id="sql-format-copy-back" type="button">Перенести результат в песочницу</button><button class="sql-lab-secondary" id="sql-format-copy" type="button">Копировать результат</button></div>
 <label for="sql-format-output"><strong>Отформатированный SQL</strong></label><textarea id="sql-format-output" placeholder="Здесь появится отформатированный запрос…" rows="14" spellcheck="false"></textarea><div aria-live="polite" class="sql-lab-status" id="sql-format-status">Готов к форматированию.</div>
 </div>
+
+<div id="sql-main-table-panel" class="table-lab-panel" hidden>
+
+  <header class="table-lab-header">
+    <h3>Своя база данных · SQLite</h3>
+    <p>Экспериментируй с таблицами и данными отдельно от учебной базы. Новая база пустая — таблицы появятся только после выполнения твоего SQL.</p>
+  </header>
+  <div class="table-lab-warning"><strong>Синтаксис SQLite.</strong> Для авто-нумерации используй <code>INTEGER PRIMARY KEY AUTOINCREMENT</code>, а не MySQL-вариант <code>AUTO_INCREMENT</code>. При ошибке уже выполненные команды не всегда откатываются автоматически.</div>
+  <div class="table-lab-workspace">
+    <div class="table-lab-editor-column">
+      <label for="table-lab-query"><strong>Твой SQL-запрос</strong></label>
+      <textarea id="table-lab-query" rows="17" spellcheck="false" placeholder="Напиши SQL-запрос… Например, нажми «Вставить пример», чтобы посмотреть CREATE TABLE, INSERT и SELECT."></textarea>
+      <div class="table-lab-actions">
+        <button type="button" id="table-lab-run">▶ Выполнить SQL</button>
+        <button type="button" class="sql-lab-secondary" id="table-lab-clear-query">Очистить редактор</button>
+        <button type="button" class="sql-lab-secondary" id="table-lab-example">Вставить пример</button>
+        <button type="button" class="sql-lab-secondary" id="table-lab-reset-db">Сбросить мою базу</button>
+      </div>
+      <details class="table-lab-command-help"><summary>Какие SQL-команды поддерживаются?</summary><p><strong>Таблицы и схема:</strong> CREATE TABLE, ALTER TABLE (переименование таблицы/столбца, добавление/удаление столбца), DROP TABLE.</p><p><strong>Данные:</strong> SELECT, INSERT, UPDATE, DELETE, REPLACE.</p><p><strong>Запросы:</strong> WHERE, ORDER BY, GROUP BY, HAVING, JOIN, UNION/UNION ALL, подзапросы, WITH/CTE, CASE, DISTINCT, LIMIT/OFFSET, агрегатные и оконные функции.</p><p><strong>Объекты и целостность:</strong> CREATE/DROP INDEX, CREATE/DROP VIEW, PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK, NOT NULL, DEFAULT, транзакции BEGIN/COMMIT/ROLLBACK и PRAGMA.</p><p class="sql-lab-help">Это возможности SQLite, а не всех диалектов SQL. Серверные команды вроде CREATE DATABASE, GRANT/REVOKE, CREATE PROCEDURE и CREATE TRIGGER в этом интерфейсе не гарантируются; триггеры SQLite поддерживаются через CREATE TRIGGER. Изменение уже существующего столбца произвольным способом через ALTER COLUMN SQLite обычно не поддерживает. Несколько команд разделяй точкой с запятой.</p></details>
+      <div id="table-lab-status" class="table-lab-status" role="status" aria-live="polite">Подготавливаем отдельную базу данных…</div>
+      <div id="table-lab-result" class="table-lab-result" aria-live="polite"></div>
+    </div>
+    <aside class="table-lab-schema-column">
+      <h3>Мои таблицы</h3>
+      <p class="sql-lab-help">Структура и количество строк обновляются после каждого успешного выполнения. Нажми «Показать данные», чтобы просмотреть содержимое.</p>
+      <div id="table-lab-schema"><p>Ожидаем загрузку SQLite…</p></div>
+    </aside>
+  </div>
+
 </div>
 </div>
+</div>
+
 <section class="sql-schema-bottom" id="sql-schema-bottom"><h3>Схема базы данных</h3><div id="sql-schema-visual"></div></section>
-<div class="note"><strong>Движок:</strong> SQLite в WebAssembly (sql.js) — реальный движок SQLite, а не сервер PostgreSQL. Он исполняет SQL в пределах возможностей SQLite; синтаксис, типы и функции PostgreSQL могут отличаться. Поддерживаются CREATE TABLE, INSERT, UPDATE, DELETE, ALTER, JOIN, подзапросы, CTE (WITH), CASE, функции, оконные функции, индексы, представления и транзакции в рамках возможностей SQLite. Движок загружается из CDN, поэтому при первом запуске нужен интернет. Данные существуют в текущей вкладке; кнопка «Восстановить базу» возвращает исходный набор.</div>
+<div class="note" id="sql-lab-engine-note"><strong>Движок:</strong> SQLite в WebAssembly (sql.js) — реальный движок SQLite, а не сервер PostgreSQL. Он исполняет SQL в пределах возможностей SQLite; синтаксис, типы и функции PostgreSQL могут отличаться. Поддерживаются CREATE TABLE, INSERT, UPDATE, DELETE, ALTER, JOIN, подзапросы, CTE (WITH), CASE, функции, оконные функции, индексы, представления и транзакции в рамках возможностей SQLite. Движок загружается из CDN, поэтому при первом запуске нужен интернет. Данные существуют в текущей вкладке; кнопка «Восстановить базу» возвращает исходный набор.</div>
 </section>
+
+
+
+
+<section id="stepik-notes" class="tab-panel" role="tabpanel" aria-hidden="true" aria-labelledby="tab-btn-stepik-notes">
+  <header class="stepik-notes__header">
+    <p class="stepik-notes__eyebrow">Личный конспект · kaleg1n</p>
+    <h2 id="stepik-notes-title">Заметки по прохождению курса от Stepik</h2>
+    <p class="stepik-notes__lead">Конспект курса «Интерактивный тренажер по SQL»: основные мысли, примеры и личные пометки автора. Материал будет пополняться по мере прохождения курса.</p>
+    <p class="stepik-notes__lead"><a href="https://stepik.org/course/63054" target="_blank" rel="noopener noreferrer">Открыть курс на Stepik ↗</a></p>
+  </header>
+  <div class="stepik-notes__body">
+    <nav class="stepik-notes-toc" aria-label="Оглавление заметок по Stepik">
+      <h3>Оглавление заметок</h3>
+      <ul>
+        <li><a href="#stepik-relations">1. Отношения (таблица): основы, типы данных, CREATE TABLE, INSERT INTO</a></li>
+        <li><a href="#stepik-select">2. Выборка данных: SELECT, вычисления, условия и сортировка</a>
+          <ul>
+            <li><a href="#stepik-select-basics">SELECT: все столбцы и отдельные столбцы</a></li>
+            <li><a href="#stepik-select-alias">Псевдонимы и вычисляемые столбцы</a></li>
+            <li><a href="#stepik-select-math">Математика и проценты</a></li>
+            <li><a href="#stepik-select-if">IF и скобки</a></li>
+            <li><a href="#stepik-select-where">WHERE и сравнения</a></li>
+            <li><a href="#stepik-select-logic">AND, OR, NOT и приоритет</a></li>
+            <li><a href="#stepik-select-between-in">BETWEEN и IN</a></li>
+            <li><a href="#stepik-select-order">ORDER BY и номера столбцов</a></li>
+            <li><a href="#stepik-select-like">LIKE и шаблоны</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <section class="stepik-topic" id="stepik-relations">
+      <h3>Модуль 1. Отношения (таблица)</h3>
+      <p>В этом блоке разбираются основы реляционной модели: как устроены таблицы, как называть столбцы, какие типы данных выбирать и как создавать таблицы и добавлять в них записи.</p>
+
+      <h4>1. Основные понятия реляционных баз данных</h4>
+      <p>Реляционная модель была разработана Эдгаром Фрэнком Коддом в конце 1960-х годов. Она описывает структуру данных, правила их целостности и операции над данными. В реляционной модели данные на концептуальном уровне представляются в виде таблиц.</p>
+      <ul>
+        <li><strong>Отношение</strong> — таблица целиком.</li>
+        <li><strong>Кортеж</strong> — строка таблицы, то есть одна запись.</li>
+        <li><strong>Мощность отношения</strong> — количество строк в таблице.</li>
+        <li><strong>Атрибут</strong> — столбец таблицы.</li>
+        <li><strong>Размерность отношения</strong> — количество столбцов.</li>
+        <li><strong>Домен атрибута</strong> — набор допустимых значений для столбца.</li>
+      </ul>
+      <p>В одной ячейке таблицы хранится одно значение. Порядок строк не следует считать гарантированным: чтобы получить нужный порядок, используют <code>ORDER BY</code>.</p>
+      <div class="stepik-note-card">
+        <span class="stepik-note-card__label">Комментарий от kaleg1n</span>
+        Термины «отношение», «кортеж», «атрибут», «мощность» и «домен» полезно узнавать: они встречаются в книгах и профессиональной литературе по SQL и базам данных. В повседневной работе чаще говорят проще — таблица, строка, столбец и допустимые значения.
+      </div>
+
+      <h4>2. Как спроектировать таблицу</h4>
+      <p>Перед созданием таблицы определяют, какие данные она будет хранить, как назвать саму таблицу и какие столбцы ей нужны. Например, для хранения сведений о книгах можно создать таблицу <code>book</code> со столбцами <code>book_id</code>, <code>title</code>, <code>author</code>, <code>price</code> и <code>amount</code>.</p>
+      <div class="stepik-table-wrap">
+        <table>
+          <thead><tr><th>Столбец</th><th>Что хранит</th><th>Пример</th></tr></thead>
+          <tbody>
+            <tr><td><code>book_id</code></td><td>Уникальный идентификатор записи</td><td><code>1</code></td></tr>
+            <tr><td><code>title</code></td><td>Название книги</td><td>Мастер и Маргарита</td></tr>
+            <tr><td><code>author</code></td><td>Автор книги</td><td>Булгаков М.А.</td></tr>
+            <tr><td><code>price</code></td><td>Цена</td><td><code>670.99</code></td></tr>
+            <tr><td><code>amount</code></td><td>Количество экземпляров</td><td><code>3</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <h4>Правила именования</h4>
+      <ul>
+        <li>Используй понятные имена, которые описывают содержимое таблицы или столбца.</li>
+        <li>Для имён обычно выбирают латинские буквы, цифры и подчёркивание; имя начинают с буквы.</li>
+        <li>Имена столбцов должны быть уникальны внутри одной таблицы, а имена таблиц — в пределах соответствующей области базы данных.</li>
+        <li>Для составных имён используй подчёркивание: например, <code>order_date</code>.</li>
+        <li>Для ключевого столбца часто используют шаблон <code>имя_таблицы_id</code>, например <code>book_id</code>.</li>
+      </ul>
+      <div class="stepik-note-card">
+        <span class="stepik-note-card__label">Комментарий от kaleg1n</span>
+        Важно: рекомендации по именованию лучше держать в одном месте и не дублировать их возле каждого примера. Короткие, понятные имена помогают быстрее читать запросы. Ограничение «до 10 символов» из курса — именно рекомендация, а не универсальное требование SQL.
+      </div>
+
+      <h4>3. Основные типы данных SQL</h4>
+      <div class="stepik-table-wrap">
+        <table>
+          <thead><tr><th>Тип</th><th>Для чего нужен</th><th>Пример</th></tr></thead>
+          <tbody>
+            <tr><td><code>INT</code> / <code>INTEGER</code></td><td>Целые числа</td><td><code>12</code>, <code>-567</code></td></tr>
+            <tr><td><code>DECIMAL(p,s)</code> / <code>NUMERIC(p,s)</code></td><td>Точные числовые значения, например денежные суммы; <code>p</code> — общая точность, <code>s</code> — число знаков после десятичного разделителя</td><td><code>DECIMAL(8,2)</code></td></tr>
+            <tr><td><code>DATE</code></td><td>Дата</td><td><code>2026-10-10</code></td></tr>
+            <tr><td><code>VARCHAR(n)</code></td><td>Строка ограниченной длины</td><td><code>VARCHAR(50)</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Для таблицы <code>book</code> можно выбрать такие типы: <code>book_id</code> — целое число и первичный ключ; <code>title</code> — <code>VARCHAR(50)</code>; <code>author</code> — <code>VARCHAR(30)</code>; <code>price</code> — <code>DECIMAL(8,2)</code>; <code>amount</code> — <code>INT</code>.</p>
+      <div class="stepik-important"><strong>Важно:</strong> точные диапазоны и поддержка типов данных зависят от конкретной СУБД. Например, правила <code>AUTO_INCREMENT</code> в MySQL и автоматической генерации ключей в SQLite различаются. Не стоит переносить синтаксис одной СУБД в другую без проверки.</div>
+      <div class="stepik-note-card">
+        <span class="stepik-note-card__label">Комментарий от kaleg1n</span>
+        Типы данных — базовая вещь, на которой строится создание таблиц. Если непонятно, почему у поля указан именно такой тип, стоит вернуться к этой таблице. При выборе длины строки ориентируйся на реальные данные, а для денег обычно нужен точный числовой тип, а не тип с плавающей точкой.
+      </div>
+
+      <h4>4. Создание таблицы — <code>CREATE TABLE</code></h4>
+      <p>Команда <code>CREATE TABLE</code> создаёт структуру таблицы: имя, столбцы и типы данных. Описание столбцов заключается в круглые скобки, а между описаниями столбцов ставятся запятые.</p>
+      <div class="stepik-code"><pre><code>CREATE TABLE genre (
+    genre_id INT PRIMARY KEY AUTO_INCREMENT,
+    name_genre VARCHAR(30)
+);</code></pre></div>
+      <ul>
+        <li><code>CREATE TABLE genre</code> — создать таблицу с именем <code>genre</code>.</li>
+        <li><code>genre_id INT</code> — столбец для целого числа.</li>
+        <li><code>PRIMARY KEY</code> — объявляет столбец первичным ключом, который однозначно идентифицирует запись.</li>
+        <li><code>AUTO_INCREMENT</code> — синтаксис MySQL для автоматического увеличения числового значения ключа.</li>
+        <li><code>name_genre VARCHAR(30)</code> — текстовый столбец длиной до 30 символов в СУБД, где действует такое ограничение.</li>
+        <li>Круглые скобки <code>( )</code> содержат описание столбцов; запятая разделяет эти описания, а точка с запятой завершает запрос.</li>
+      </ul>
+      <div class="stepik-note-card">
+        <span class="stepik-note-card__label">Комментарий от kaleg1n</span>
+        В примерах стоит подсвечивать не только сам запрос, но и смысл его частей. И отдельно напоминать про круглые скобки и запятые: внутри скобок перечисляются столбцы с их типами. Типы данных связаны с предыдущим разделом — если они непонятны, создание таблицы тоже будет трудно понять.
+      </div>
+      <p><strong>Стиль записи запросов:</strong> ключевые слова SQL и названия типов данных часто пишут заглавными буквами, а имена таблиц и столбцов — строчными. SQL обычно не зависит от регистра ключевых слов, но единый стиль делает запросы легче для чтения. Каждый запрос удобно завершать точкой с запятой.</p>
+
+      <h4>5. Добавление записей — <code>INSERT INTO</code></h4>
+      <p>Команда <code>INSERT INTO</code> добавляет строки в уже существующую таблицу. Сначала указывают имя таблицы и список столбцов, затем после <code>VALUES</code> — значения в том же порядке.</p>
+      <div class="stepik-code"><pre><code>INSERT INTO book (title, author, price, amount)
+VALUES ('Мастер и Маргарита', 'Булгаков М.А.', 670.99, 3);</code></pre></div>
+      <ul>
+        <li><code>INSERT INTO book</code> — добавляем запись в таблицу <code>book</code>.</li>
+        <li><code>(title, author, price, amount)</code> — перечисляем существующие столбцы, в которые добавляем данные.</li>
+        <li><code>VALUES (...)</code> — указываем значения в том же порядке: название, автор, цена, количество.</li>
+        <li>Текстовые значения записываются в одинарных кавычках, числа — обычно без кавычек, дробная часть отделяется точкой.</li>
+        <li>Количество значений должно совпадать с количеством перечисленных столбцов, а типы значений должны подходить столбцам.</li>
+      </ul>
+      <div class="stepik-note-card">
+        <span class="stepik-note-card__label">Комментарий от kaleg1n</span>
+        Ключевая мысль: мы не просто пишем значения подряд. Сначала называем таблицу и конкретные столбцы, куда хотим добавить данные, а затем перечисляем соответствующие значения. Так запрос понятнее и меньше зависит от порядка столбцов в структуре таблицы.
+      </div>
+      <p>Если первичный ключ автоматически генерируется СУБД, его обычно не включают в список вставляемых столбцов — тогда значение создаётся автоматически. Это зависит от того, как настроен ключ в конкретной СУБД.</p>
+
+      <h4>Можно добавить несколько строк одним запросом</h4>
+      <p>Вместо нескольких отдельных команд <code>INSERT</code> можно указать несколько наборов значений после одного <code>VALUES</code>:</p>
+      <div class="stepik-code"><pre><code>INSERT INTO book (title, author, price, amount)
+VALUES
+    ('Белая гвардия', 'Булгаков М.А.', 540.50, 5),
+    ('Идиот', 'Достоевский Ф.М.', 460.00, 10),
+    ('Братья Карамазовы', 'Достоевский Ф.М.', 799.01, 2);
+
+SELECT * FROM book;</code></pre></div>
+      <div class="stepik-important"><strong>Как читать пример:</strong> сначала команда <code>INSERT INTO</code> добавляет три строки в таблицу <code>book</code>. Затем отдельная команда <code>SELECT * FROM book;</code> запрашивает все столбцы и строки таблицы, чтобы посмотреть результат. Звёздочка <code>*</code> означает «все столбцы», а <code>FROM book</code> указывает источник данных — таблицу <code>book</code>.</div>
+      <p>Каждая SQL-команда завершается точкой с запятой. Можно писать несколько команд подряд, а для просмотра содержимого таблицы после добавления данных использовать <code>SELECT * FROM book;</code>.</p>
+      <div class="stepik-note-card">
+        <span class="stepik-note-card__label">Комментарий от kaleg1n</span>
+        Эту последовательность полезно выделять отдельно: <strong>1)</strong> добавляем записи через <code>INSERT INTO</code>; <strong>2)</strong> проверяем результат через <code>SELECT</code>. В задании Stepik строки предлагается добавлять по одной командой, но вариант с несколькими наборами после одного <code>VALUES</code> тоже существует и часто удобнее.
+      </div>
+    </section>
+
+    <section class="stepik-topic" id="stepik-select">
+      <h3>Модуль 2. Выборка данных</h3>
+      <p>В этом блоке учимся получать из таблицы нужные столбцы и строки, переименовывать результаты, выполнять вычисления, задавать условия и сортировать результат. Для примеров используется таблица <code>book</code>.</p>
+
+      <h4 id="stepik-select-basics">1. Выбираем все данные или отдельные столбцы</h4>
+      <p><code>SELECT</code> указывает, какие данные вывести, а <code>FROM</code> — из какой таблицы их взять.</p>
+      <div class="stepik-code"><pre><code>SELECT * FROM book;
+
+SELECT title, amount
+FROM book;</code></pre></div>
+      <ul>
+        <li><code>SELECT *</code> — выбрать все столбцы.</li>
+        <li><code>SELECT title, amount</code> — вывести только перечисленные столбцы; их названия разделяются запятыми.</li>
+        <li><code>FROM book</code> — источник данных, таблица <code>book</code>.</li>
+      </ul>
+      <div class="stepik-note-card"><span class="stepik-note-card__label">Комментарий от kaleg1n</span>Читай запрос как инструкцию: сначала говорим, <strong>что вывести</strong> (<code>SELECT</code>), затем — <strong>откуда взять данные</strong> (<code>FROM</code>). Звёздочка означает все столбцы, а не все таблицы.</div>
+
+      <h4 id="stepik-select-alias">2. Псевдонимы и вычисляемые столбцы</h4>
+      <p>Через <code>AS</code> можно дать столбцу в результате новое имя. Само название столбца в исходной таблице при этом не меняется.</p>
+      <div class="stepik-code"><pre><code>SELECT title AS Название, amount AS Количество
+FROM book;</code></pre></div>
+      <p>В выборку также можно добавить вычисление: например, умножить цену на количество экземпляров. Результат будет отдельным вычисляемым столбцом.</p>
+      <div class="stepik-code"><pre><code>SELECT title, price, amount,
+       price * amount AS total
+FROM book;</code></pre></div>
+      <div class="stepik-note-card"><span class="stepik-note-card__label">Комментарий от kaleg1n</span><code>AS total</code> задаёт понятное имя результату вычисления. Полезно помнить: это не новое поле, которое сохраняется в таблице, а столбец только в результате данного запроса.</div>
+
+      <h4 id="stepik-select-math">3. Математические функции и проценты</h4>
+      <p>В выражениях можно использовать арифметические операции и функции. Вот несколько часто встречающихся функций:</p>
+      <div class="stepik-table-wrap"><table><thead><tr><th>Функция</th><th>Что делает</th></tr></thead><tbody>
+        <tr><td><code>ROUND(x, k)</code></td><td>Округляет <code>x</code> до <code>k</code> знаков после запятой.</td></tr>
+        <tr><td><code>CEILING(x)</code></td><td>Округляет вверх до ближайшего целого, не меньшего <code>x</code>.</td></tr>
+        <tr><td><code>FLOOR(x)</code></td><td>Округляет вниз до ближайшего целого, не большего <code>x</code>.</td></tr>
+        <tr><td><code>ABS(x)</code></td><td>Возвращает модуль числа.</td></tr>
+        <tr><td><code>POWER(x, y)</code></td><td>Возводит <code>x</code> в степень <code>y</code>.</td></tr>
+        <tr><td><code>SQRT(x)</code></td><td>Вычисляет квадратный корень.</td></tr>
+        <tr><td><code>PI()</code></td><td>Возвращает приближённое значение числа π.</td></tr>
+        <tr><td><code>DEGREES(x)</code> / <code>RADIANS(x)</code></td><td>Переводят радианы в градусы и градусы в радианы соответственно.</td></tr>
+      </tbody></table></div>
+      <p>Если значение увеличили на 30%, оно стало равным исходному значению, умноженному на <code>1.3</code>. Если нужно получить цену <strong>после скидки 30%</strong>, остаётся 70% цены: <code>1 - 0.3 = 0.7</code>, поэтому новую цену считаем так: <code>цена * 0.7</code>.</p>
+      <div class="stepik-code"><pre><code>SELECT title,
+       price,
+       ROUND(price * 0.7, 2) AS price_after_discount
+FROM book;</code></pre></div>
+      <div class="stepik-note-card"><span class="stepik-note-card__label">Комментарий от kaleg1n</span>Чтобы применить скидку в процентах, вычти её долю из единицы: скидка 30% → <code>1 - 0.30 = 0.70</code>, затем умножь цену на <code>0.70</code>. Для наценки 30% наоборот умножай на <code>1.30</code>. Не путай цену после скидки с размером самой скидки.</div>
+      <p>Для денежных значений часто нужно округление до двух знаков после запятой: например, <code>ROUND(price * 0.7, 2)</code>. Поддержка функций и особенности округления могут различаться между СУБД.</p>
+
+      <h4 id="stepik-select-if">4. Условия в выражении: IF и правильные скобки</h4>
+      <p>В MySQL функция <code>IF(условие, значение_если_истина, значение_если_ложь)</code> выбирает результат в зависимости от условия. Например, можно рассчитать цену со скидкой в зависимости от количества книг:</p>
+      <div class="stepik-code"><pre><code>SELECT title, amount, price,
+       ROUND(
+           IF(amount < 4, price * 0.5,
+               IF(amount < 11, price * 0.7, price * 0.9)
+           ),
+           2
+       ) AS sale
+FROM book;</code></pre></div>
+      <p>В этом примере количество меньше 4 означает цену в 50% от исходной; для количества от 4 до 10 включительно — 70%; для 11 и более — 90%. Вложенный <code>IF</code> проверяет следующее условие, только если первое не сработало.</p>
+      <div class="stepik-note-card"><span class="stepik-note-card__label">Комментарий от kaleg1n</span><strong>Скобки стоит открывать и закрывать по уровням вложенности.</strong> Каждый вызов функции получает свою пару скобок; вложенный <code>IF</code> лучше начинать с новой строки и с отступом. Закрывающую скобку располагай под началом соответствующего выражения. Так проще увидеть, где заканчивается условие, где — вложенный <code>IF</code>, а где — <code>ROUND</code>. После форматирования проверь, что у каждой открывающей скобки есть своя закрывающая и аргументы отделены запятыми. Функция <code>IF()</code> есть не во всех диалектах в таком виде.</div>
+
+      <h4 id="stepik-select-where">5. Фильтрация строк: WHERE</h4>
+      <p><code>WHERE</code> оставляет в результате только те строки, для которых условие истинно. Часто используются операторы сравнения:</p>
+      <p><code>=</code> равно · <code>&lt;&gt;</code> не равно · <code>&gt;</code> больше · <code>&lt;</code> меньше · <code>&gt;=</code> больше или равно · <code>&lt;=</code> меньше или равно.</p>
+      <div class="stepik-code"><pre><code>SELECT title, price
+FROM book
+WHERE price < 600;</code></pre></div>
+      <p>Можно фильтровать и по выражению, например по общей стоимости позиции: <code>WHERE price * amount > 4000</code>.</p>
+      <div class="stepik-important"><strong>Важно:</strong> в типичном порядке логической обработки запроса условие <code>WHERE</code> проверяется раньше, чем формируется список выводимых столбцов. Поэтому псевдоним, объявленный через <code>AS</code> в <code>SELECT</code>, обычно нельзя использовать в <code>WHERE</code>; повтори исходное выражение или вынеси вычисление в подзапрос/CTE.</div>
+
+      <h4 id="stepik-select-logic">6. Логические операции и приоритет</h4>
+      <p>В условии <code>WHERE</code> можно соединять проверки логическими операторами:</p>
+      <ul><li><code>AND</code> — должны выполниться оба условия.</li><li><code>OR</code> — достаточно выполнения хотя бы одного условия.</li><li><code>NOT</code> — отрицает условие.</li></ul>
+      <p>В общем случае сначала выполняются выражения в скобках, затем арифметика и сравнения, после этого <code>NOT</code>, <code>AND</code> и затем <code>OR</code>. Поэтому скобки помогают явно задать нужную логику.</p>
+      <div class="stepik-code"><pre><code>SELECT title, author, price
+FROM book
+WHERE (author = 'Булгаков М.А.' OR author = 'Есенин С.А.')
+  AND price > 600;</code></pre></div>
+      <div class="stepik-note-card"><span class="stepik-note-card__label">Комментарий от kaleg1n</span>Если смысл такой: «автор — Булгаков или Есенин, и при этом цена выше 600», заключай две проверки автора в скобки. Без скобок <code>AND</code> выполнится раньше <code>OR</code>, и результат может включить лишние строки. Даже когда скобки необязательны, добавляй их, если так логика читается яснее.</div>
+
+      <h4 id="stepik-select-between-in">7. BETWEEN и IN</h4>
+      <p><code>BETWEEN</code> выбирает значения в диапазоне, включая обе границы. Например, <code>WHERE amount BETWEEN 5 AND 14</code> эквивалентно условиям <code>amount &gt;= 5 AND amount &lt;= 14</code>.</p>
+      <p><code>IN</code> проверяет, входит ли значение в список. Например:</p>
+      <div class="stepik-code"><pre><code>SELECT title, price
+FROM book
+WHERE author IN ('Булгаков М.А.', 'Достоевский Ф.М.');</code></pre></div>
+      <p>Это короче, чем несколько сравнений, соединённых через <code>OR</code>. Если нужно исключить список значений, можно использовать <code>NOT IN</code>, помня, что значения <code>NULL</code> требуют отдельного внимания.</p>
+
+      <h4 id="stepik-select-order">8. Сортировка: ORDER BY</h4>
+      <p><code>ORDER BY</code> сортирует строки результата. По умолчанию — по возрастанию (<code>ASC</code>); для убывания используют <code>DESC</code>. Можно указать несколько столбцов: следующий используется для сортировки строк с одинаковыми значениями предыдущего.</p>
+      <div class="stepik-code"><pre><code>SELECT title, author, price
+FROM book
+ORDER BY title ASC;
+
+SELECT author, title, amount AS Количество
+FROM book
+WHERE price < 750
+ORDER BY author ASC, amount DESC;</code></pre></div>
+      <p>В некоторых учебных примерах можно указать номер столбца из списка <code>SELECT</code>: <code>ORDER BY 1</code> означает сортировку по первому выбранному столбцу. Если запрос выводит <code>title, author, price</code>, то номер <code>1</code> соответствует <code>title</code>, а номер <code>3</code> — <code>price</code>. Этот способ менее понятен при чтении и может быть неудобен при изменении списка столбцов.</p>
+      <div class="stepik-note-card"><span class="stepik-note-card__label">Комментарий от kaleg1n</span>Цифра после <code>ORDER BY</code> — это позиция столбца в результате <code>SELECT</code>, а не номер столбца в исходной таблице. Поэтому <code>ORDER BY 1</code> сортирует по первому столбцу, который указан после <code>SELECT</code>.</div>
+
+      <h4 id="stepik-select-like">9. Поиск по шаблону: LIKE</h4>
+      <p><code>LIKE</code> позволяет искать строки по шаблону. Два основных символа-шаблона:</p>
+      <div class="stepik-table-wrap"><table><thead><tr><th>Шаблон</th><th>Значение</th><th>Пример</th></tr></thead><tbody>
+        <tr><td><code>%</code></td><td>Любое количество символов, в том числе ноль</td><td><code>title LIKE 'Б%'</code> — название начинается с «Б».</td></tr>
+        <tr><td><code>_</code></td><td>Ровно один произвольный символ</td><td><code>title LIKE 'Поэм_'</code> — слово из пяти символов, начинающееся с «Поэм».</td></tr>
+      </tbody></table></div>
+      <div class="stepik-code"><pre><code>-- Названия, начинающиеся с буквы «Б»
+SELECT title FROM book
+WHERE title LIKE 'Б%';
+
+-- Названия без пробелов, то есть из одного слова
+SELECT title FROM book
+WHERE title NOT LIKE '% %';</code></pre></div>
+      <p>Чтобы искать текст в любом месте строки, можно использовать <code>'%текст%'</code>. Шаблон <code>'_____'</code> соответствует строке ровно из пяти символов. При этом поведение сравнения регистра зависит от СУБД и её настроек.</p>
+      <div class="stepik-note-card"><span class="stepik-note-card__label">Комментарий от kaleg1n</span>Запомни различие: <code>%</code> — «сколько угодно символов», а <code>_</code> — «ровно один символ». Например, <code>'Б%'</code> ищет всё, что начинается с «Б», а <code>'_____'</code> — названия из пяти символов. Если важно найти отдельное слово внутри названия, одного шаблона может быть недостаточно: нужно учитывать пробелы и положение слова.</div>
+    </section>
+    <p class="stepik-source">Источник: курс <a href="https://stepik.org/course/63054" target="_blank" rel="noopener noreferrer">«Интерактивный тренажер по SQL» на Stepik</a>. Это личный конспект kaleg1n с пояснениями и дополнительными комментариями. Формулировки упрощены и сгруппированы, чтобы не повторять одни и те же рекомендации в нескольких местах.</p>
+  </div>
+</section>
+
 <footer class="site-credit source-credit"><div class="source-credit__inner"><p class="source-credit__eyebrow">О проекте и авторстве</p><p><strong>SQL-справочник kaleg1n</strong> — самостоятельная учебная HTML-работа, в которой собраны и организованы термины SQL, примеры запросов, пояснения, учебные базы данных, результаты выполнения и практические задания.</p><p><strong>Авторство и вклад.</strong> Структура справочника, подбор и организация материала, оформление страницы, учебная песочница и внесённые в проект доработки подготовлены и собраны <strong>kaleg1n</strong> при помощи ChatGPT и DeepSeek. Использование ИИ в работе не означает, что проект создан или принадлежит этим сервисам.</p><p><strong>Источник идеи.</strong> Отправной точкой послужил комментарий в обсуждении урока на Stepik. Указание источника не означает, что автор комментария является автором всего этого HTML-проекта. <a href="https://stepik.org/lesson/297508/step/1?discussion=3698024" rel="noopener noreferrer" target="_blank">Открыть исходный комментарий на Stepik ↗</a></p><p><strong>Условия использования.</strong> © kaleg1n. Все права на оригинальные элементы этой работы сохраняются за их автором в пределах применимого законодательства. Без предварительного письменного разрешения запрещается выдавать весь проект или его существенные оригинальные части за собственную работу, удалять сведения об авторстве либо распространять изменённые копии так, будто они являются оригинальным проектом автора. Для личного обучения и ознакомления ссылаться на источник и автора приветствуется.</p><p><strong>Сторонние материалы.</strong> Названия технологий, SQL, сторонние библиотеки и материалы, на которые дана ссылка, могут принадлежать соответствующим правообладателям и регулируются их собственными условиями. Эта заметка не заявляет исключительных прав на сам язык SQL, общие знания или материалы третьих лиц.</p><p class="source-credit__signature">Проект собран и доработан <strong>kaleg1n</strong> · При цитировании или использовании фрагментов указывайте автора и ссылку на исходный проект.</p></div></footer>
 <script>
     (function () {
@@ -7918,7 +8277,10 @@ tablesBox.querySelectorAll('.sql-field-click').forEach(btn=>btn.addEventListener
 
 }
 function syncSqlHighlight(){const pre=$('sql-editor-highlight');if(!pre||!editor)return;let code=editor.value||' ';const pattern=/(--[^\n]*|\/\*[\s\S]*?\*\/|'(?:''|[^'])*'|\b(?:SELECT|DISTINCT|FROM|WHERE|GROUP|BY|HAVING|ORDER|LIMIT|OFFSET|JOIN|INNER|LEFT|RIGHT|CROSS|ON|AS|AND|OR|NOT|NULL|IS|IN|LIKE|BETWEEN|CASE|WHEN|THEN|ELSE|END|COUNT|SUM|AVG|MIN|MAX|ROUND|COALESCE|CAST|WITH|RECURSIVE|UNION|ALL|EXISTS|CREATE|TABLE|TEMP|VIEW|INDEX|INSERT|INTO|VALUES|UPDATE|SET|DELETE|RETURNING|ALTER|DROP|BEGIN|COMMIT|ROLLBACK|EXPLAIN|QUERY|PLAN|OVER|PARTITION|ROW_NUMBER|RANK|DENSE_RANK|LAG|LEAD|ASC|DESC|PRIMARY|KEY|FOREIGN|REFERENCES|INT|INTEGER|TEXT|DECIMAL|DATE|TRUE|FALSE)\b|\b(?:COUNT|SUM|AVG|MIN|MAX|ROUND|COALESCE|LOWER|UPPER|LENGTH|ABS|SUBSTR|IFNULL|ROW_NUMBER|RANK|DENSE_RANK|LAG|LEAD)\b|\b\d+(?:\.\d+)?\b|[=<>!+*/%-])/gi;let out='',last=0,m;while((m=pattern.exec(code))!==null){out+=esc(code.slice(last,m.index));const t=m[0];let cls='sql-token-keyword';if(t.startsWith('--')||t.startsWith('/*'))cls='sql-token-comment';else if(t.startsWith("'"))cls='sql-token-string';else if(/^\d/.test(t))cls='sql-token-number';else if(/^[=<>!+*/%-]$/.test(t))cls='sql-token-operator';else if(/^(COUNT|SUM|AVG|MIN|MAX|ROUND|COALESCE|LOWER|UPPER|LENGTH|ABS|SUBSTR|IFNULL|ROW_NUMBER|RANK|DENSE_RANK|LAG|LEAD)$/i.test(t))cls='sql-token-function';out+='<span class="'+cls+'">'+esc(t)+'</span>';last=pattern.lastIndex;}out+=esc(code.slice(last));pre.innerHTML=out+'\n';pre.scrollTop=editor.scrollTop;pre.scrollLeft=editor.scrollLeft;}
-function run(){if(!db){setStatus('Загружается SQL-движок…');return;}const sql=editor.value.trim();if(!sql){setStatus('Введи SQL-запрос.','error');return;}try{const results=db.exec(sql);output.innerHTML='';let shown=0;results.forEach((r,i)=>{shown++;if(!r.columns.length){output.insertAdjacentHTML('beforeend','<p class="sql-lab-help">Оператор выполнен успешно. Изменено строк: '+db.getRowsModified()+'.</p>');return;}const html='<div class="sql-lab-result-set"><strong>Результат '+shown+'</strong><p class="sql-lab-help">Каждый столбец результата соответствует выражению в SELECT; названия столбцов задаются полями или псевдонимами AS.</p><div class="sql-lab-result"><table><thead><tr>'+r.columns.map(c=>'<th title="Столбец сформирован соответствующим выражением SELECT: '+esc(c)+'">'+esc(c)+'</th>').join('')+'</tr></thead><tbody>'+r.values.map(row=>'<tr>'+row.map(v=>'<td>'+esc(v)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div><p class="sql-lab-help">Строк: '+r.values.length+' · столбцов: '+r.columns.length+'</p></div>';output.insertAdjacentHTML('beforeend',html);});if(!results.length)output.innerHTML='<p class="sql-lab-help">Команда выполнена. Результирующих таблиц нет.</p>';const explanation=[];if(/\bWHERE\b/i.test(sql))explanation.push('WHERE отобрал строки по условию');if(/\bJOIN\b/i.test(sql))explanation.push('JOIN связал данные таблиц');if(/\bGROUP\s+BY\b/i.test(sql))explanation.push('GROUP BY сформировал группы');if(/\bHAVING\b/i.test(sql))explanation.push('HAVING отфильтровал группы');if(/\bORDER\s+BY\b/i.test(sql))explanation.push('ORDER BY определил порядок строк');if(/\bCOUNT|SUM|AVG|MIN|MAX\s*\(/i.test(sql))explanation.push('агрегатная функция рассчитала итоговое значение');if(/\bOVER\s*\(/i.test(sql))explanation.push('оконная функция рассчитала значение по окну строк');if(explanation.length){const note=document.createElement('p');note.className='sql-lab-help sql-result-explanation';note.textContent='Разбор результата: '+explanation.join('; ')+'.';output.prepend(note);}setStatus('Выполнено успешно. Результирующих наборов: '+results.filter(r=>r.columns.length).length+'.','success');validateCurrentTask(sql,results);if(/\b(CREATE|DROP|ALTER|INSERT|UPDATE|DELETE|REPLACE)\b/i.test(sql))renderSchema();}catch(e){if(taskModeActive&&currentTask){taskProgress.set(currentTask.id,'failed');taskAttempts.set(currentTask.id,(taskAttempts.get(currentTask.id)||0)+1);refreshTaskOptions();const tries=taskAttempts.get(currentTask.id)||1;const fb=$('sql-task-feedback');fb.className='sql-task-feedback is-failed';fb.innerHTML='✕ Запрос не выполнен. Проверь синтаксис, имена таблицы и столбцов. <button type="button" class="sql-inline-link" id="sql-error-examples-link">Открыть примеры запросов</button>';const link=$('sql-error-examples-link');if(link)link.addEventListener('click',()=>{activateSideTab('examples');$('sql-lab-example').selectedIndex=0;showSelectedExample();});$('sql-task-hint').hidden=false;$('sql-task-hint-top').hidden=false;$('sql-task-answer-top').hidden=tries<2;showTaskHelpToast('Подсказка: '+currentTask.hint);const meta=$('sql-task-prompt').querySelector('.sql-task-status');if(meta){meta.className='sql-task-status is-failed';meta.textContent='↻ Не выполнено';}}output.innerHTML='';const raw=String(e.message||e);let why='Проверь синтаксис запроса, названия таблиц и столбцов.';if(/no such table/i.test(raw))why='Таблица не найдена в выбранной учебной базе. Проверь имя таблицы во вкладке «Учебная база».';else if(/no such column/i.test(raw))why='Такого столбца нет в таблице или он указан без правильного алиаса. Проверь структуру таблицы.';else if(/syntax error/i.test(raw))why='Синтаксическая ошибка: проверь порядок SQL-команд, запятые, скобки и кавычки около указанного места.';else if(/ambiguous column/i.test(raw))why='Столбец неоднозначен: несколько таблиц содержат такое имя. Укажи алиас, например e.id.';else if(/datatype mismatch/i.test(raw))why='Тип значения не подходит столбцу. Проверь число, текст, дату и формат литерала.';else if(/UNIQUE constraint failed/i.test(raw))why='Нарушено ограничение уникальности: такое значение первичного или уникального ключа уже существует.';else if(/FOREIGN KEY constraint failed/i.test(raw))why='Нарушена внешняя связь: ссылка указывает на отсутствующую запись в родительской таблице.';else if(/NOT NULL constraint failed/i.test(raw))why='Обязательный столбец получил NULL. Передай значение или измени запрос.';else if(/misuse of aggregate/i.test(raw)||/GROUP BY/i.test(raw))why='Проверь группировку: неагрегированные столбцы в SELECT должны быть согласованы с GROUP BY.';setStatus('Ошибка SQLite: '+raw+' — '+why,'error');}}
+function run(){if(!db){setStatus('Загружается SQL-движок…');return;}const sql=editor.value.trim();if(!sql){setStatus('Введи SQL-запрос.','error');return;}try{const results=db.exec(sql);output.innerHTML='';let shown=0;results.forEach((r,i)=>{shown++;if(!r.columns.length){output.insertAdjacentHTML('beforeend','<p class="sql-lab-help">Оператор выполнен успешно. Изменено строк: '+db.getRowsModified()+'.</p>');return;}const html='<div class="sql-lab-result-set"><strong>Результат '+shown+'</strong><p class="sql-lab-help">Каждый столбец результата соответствует выражению в SELECT; названия столбцов задаются полями или псевдонимами AS.</p><div class="sql-lab-result"><table><thead><tr>'+r.columns.map(c=>'<th title="Столбец сформирован соответствующим выражением SELECT: '+esc(c)+'">'+esc(c)+'</th>').join('')+'</tr></thead><tbody>'+r.values.map(row=>'<tr>'+row.map(v=>'<td>'+esc(v)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div><p class="sql-lab-help">Строк: '+r.values.length+' · столбцов: '+r.columns.length+'</p></div>';output.insertAdjacentHTML('beforeend',html);});if(!results.length&&!/\bCREATE\s+(?:TEMP(?:ORARY)?\s+)?TABLE\b/i.test(sql))output.innerHTML='<p class="sql-lab-help">Команда выполнена. Результирующих таблиц нет.</p>';const explanation=[];if(/\bWHERE\b/i.test(sql))explanation.push('WHERE отобрал строки по условию');if(/\bJOIN\b/i.test(sql))explanation.push('JOIN связал данные таблиц');if(/\bGROUP\s+BY\b/i.test(sql))explanation.push('GROUP BY сформировал группы');if(/\bHAVING\b/i.test(sql))explanation.push('HAVING отфильтровал группы');if(/\bORDER\s+BY\b/i.test(sql))explanation.push('ORDER BY определил порядок строк');if(/\bCOUNT|SUM|AVG|MIN|MAX\s*\(/i.test(sql))explanation.push('агрегатная функция рассчитала итоговое значение');if(/\bOVER\s*\(/i.test(sql))explanation.push('оконная функция рассчитала значение по окну строк');if(explanation.length){const note=document.createElement('p');note.className='sql-lab-help sql-result-explanation';note.textContent='Разбор результата: '+explanation.join('; ')+'.';output.prepend(note);}setStatus('Выполнено успешно. Результирующих наборов: '+results.filter(r=>r.columns.length).length+'.','success');
+ const createdTables=[...sql.matchAll(/\bCREATE\s+(?:TEMP(?:ORARY)?\s+)?TABLE\s+(?:IF\s+NOT\s+EXISTS\s+)?(?:"([^"]+)"|`([^`]+)`|\[([^\]]+)\]|([\w$]+))/gi)].map(m=>m[1]||m[2]||m[3]||m[4]);
+ if(createdTables.length){createdTables.forEach(tableName=>{try{const safe=tableName.replace(/"/g,'""');const info=db.exec('PRAGMA table_info("'+safe+'")')[0]?.values||[];if(info.length){const block=document.createElement('div');block.className='sql-lab-result-set sql-created-table-result';block.innerHTML='<strong>✓ Таблица «'+esc(tableName)+'» создана</strong><p class="sql-lab-help">Структура новой таблицы:</p><div class="sql-lab-result"><table><thead><tr><th>Поле</th><th>Тип данных</th><th>Обязательное</th><th>Ключ</th></tr></thead><tbody>'+info.map(c=>'<tr><td>'+esc(c[1])+'</td><td>'+esc(c[2]||'не указан')+'</td><td>'+(Number(c[3])?'Да':'Нет')+'</td><td>'+(Number(c[5])?'Первичный ключ':'—')+'</td></tr>').join('')+'</tbody></table></div><p class="sql-lab-help">Таблица добавлена в схему базы данных ниже. Она доступна для следующих запросов до нажатия «Восстановить базу» или смены учебной базы.</p>';output.appendChild(block);}}catch(e){}});}
+ validateCurrentTask(sql,results);if(/\b(CREATE|DROP|ALTER|INSERT|UPDATE|DELETE|REPLACE)\b/i.test(sql))renderSchema();}catch(e){if(taskModeActive&&currentTask){taskProgress.set(currentTask.id,'failed');taskAttempts.set(currentTask.id,(taskAttempts.get(currentTask.id)||0)+1);refreshTaskOptions();const tries=taskAttempts.get(currentTask.id)||1;const fb=$('sql-task-feedback');fb.className='sql-task-feedback is-failed';fb.innerHTML='✕ Запрос не выполнен. Проверь синтаксис, имена таблицы и столбцов. <button type="button" class="sql-inline-link" id="sql-error-examples-link">Открыть примеры запросов</button>';const link=$('sql-error-examples-link');if(link)link.addEventListener('click',()=>{activateSideTab('examples');$('sql-lab-example').selectedIndex=0;showSelectedExample();});$('sql-task-hint').hidden=false;$('sql-task-hint-top').hidden=false;$('sql-task-answer-top').hidden=tries<2;showTaskHelpToast('Подсказка: '+currentTask.hint);const meta=$('sql-task-prompt').querySelector('.sql-task-status');if(meta){meta.className='sql-task-status is-failed';meta.textContent='↻ Не выполнено';}}output.innerHTML='';const raw=String(e.message||e);let why='Проверь синтаксис запроса, названия таблиц и столбцов.';if(/no such table/i.test(raw))why='Таблица не найдена в выбранной учебной базе. Проверь имя таблицы во вкладке «Учебная база».';else if(/no such column/i.test(raw))why='Такого столбца нет в таблице или он указан без правильного алиаса. Проверь структуру таблицы.';else if(/syntax error/i.test(raw))why='Синтаксическая ошибка: проверь порядок SQL-команд, запятые, скобки и кавычки около указанного места.';else if(/ambiguous column/i.test(raw))why='Столбец неоднозначен: несколько таблиц содержат такое имя. Укажи алиас, например e.id.';else if(/datatype mismatch/i.test(raw))why='Тип значения не подходит столбцу. Проверь число, текст, дату и формат литерала.';else if(/UNIQUE constraint failed/i.test(raw))why='Нарушено ограничение уникальности: такое значение первичного или уникального ключа уже существует.';else if(/FOREIGN KEY constraint failed/i.test(raw))why='Нарушена внешняя связь: ссылка указывает на отсутствующую запись в родительской таблице.';else if(/NOT NULL constraint failed/i.test(raw))why='Обязательный столбец получил NULL. Передай значение или измени запрос.';else if(/misuse of aggregate/i.test(raw)||/GROUP BY/i.test(raw))why='Проверь группировку: неагрегированные столбцы в SELECT должны быть согласованы с GROUP BY.';setStatus('Ошибка SQLite: '+raw+' — '+why,'error');}}
 function keywords(){return 'SELECT DISTINCT FROM WHERE GROUP BY HAVING ORDER BY LIMIT OFFSET JOIN INNER LEFT RIGHT CROSS ON AS AND OR NOT NULL IS IN LIKE BETWEEN CASE WHEN THEN ELSE END COUNT SUM AVG MIN MAX ROUND COALESCE CAST WITH RECURSIVE UNION ALL EXISTS CREATE TABLE TEMP VIEW INDEX INSERT INTO VALUES UPDATE SET DELETE FROM RETURNING ALTER DROP BEGIN COMMIT ROLLBACK EXPLAIN QUERY PLAN OVER PARTITION BY ROW_NUMBER RANK DENSE_RANK LAG LEAD'.split(' ');}
 function getSuggestions(){const text=editor.value,cur=editor.selectionStart,before=text.slice(0,cur),m=before.match(/[\w$]+$/),prefix=m?m[0]:'',beforeWord=before.slice(0,before.length-prefix.length),list=[],tables=[],columns=[];const add=(arr,x)=>{if(x&&!arr.includes(x))arr.push(x);};keywords().forEach(x=>add(list,x));Object.keys(seed[dbName]).forEach(t=>{add(tables,t);(seed[dbName][t][0]?Object.keys(seed[dbName][t][0]):[]).forEach(c=>add(columns,c));});if(db){try{db.exec("SELECT name FROM sqlite_master WHERE type IN ('table','view') AND name NOT LIKE 'sqlite_%'")[0]?.values.forEach(r=>add(tables,r[0]));}catch(e){}}let pool=list.concat(tables,columns);if(/\b(FROM|JOIN|UPDATE|INTO|TABLE)\s*$/i.test(beforeWord))pool=tables.concat(list);else if(/\b(SELECT|WHERE|AND|OR|BY|SET|ON)\s*$/i.test(beforeWord))pool=columns.concat(list,tables);else if(/\b[\w]+\.$/.test(beforeWord)){const t=beforeWord.match(/([\w]+)\.$/)[1].toLowerCase();pool=[];Object.entries(seed[dbName]).forEach(([name,rows])=>{if(name.toLowerCase()===t&&rows[0])Object.keys(rows[0]).forEach(c=>add(pool,c));});}if(prefix)pool=pool.filter(x=>x.toLowerCase().startsWith(prefix.toLowerCase()));const unique=[...new Set(pool)];unique.sort((a,b)=>{const ap=a.toLowerCase()===prefix.toLowerCase()?0:1,bp=b.toLowerCase()===prefix.toLowerCase()?0:1;return ap-bp||a.localeCompare(b);});return {list:unique.slice(0,18),prefix,start:cur-prefix.length,end:cur};}
 function showCompletion(){const data=getSuggestions();suggestions=data.list;selected=0;if(!suggestions.length){hideCompletion();setStatus('Нет подсказок для текущего фрагмента.','');return;}completion.innerHTML=suggestions.map((v,i)=>'<button type="button" role="option" aria-selected="'+(i===0)+'" class="sql-completion-item" data-index="'+i+'"><span>'+esc(v)+'</span><small>'+(/^[A-Z_ ]+$/.test(v)?'SQL':'таблица / столбец')+'</small></button>').join('');completion.hidden=false;completion.querySelectorAll('button').forEach(b=>b.addEventListener('mousedown',e=>{e.preventDefault();selected=Number(b.dataset.index);insertSuggestion();}));}
@@ -8049,7 +8411,7 @@ function buildTaskPool(){
 let taskHintLevel=0;
 let currentTask=null, taskModeActive=false, activeTaskLevel=1;
 const taskProgress=new Map(), taskAttempts=new Map();
-const SQL_PROGRESS_KEY='kaleg1n_sql_task_progress_v5';
+const SQL_PROGRESS_KEY='kaleg1n_sql_task_progress_v6';
 try{const saved=JSON.parse(localStorage.getItem(SQL_PROGRESS_KEY)||'{}');Object.entries(saved).forEach(([k,v])=>taskProgress.set(Number(k),v));}catch(e){}
 function persistTaskProgress(){try{localStorage.setItem(SQL_PROGRESS_KEY,JSON.stringify(Object.fromEntries(taskProgress)));}catch(e){}}
 function taskLabel(t){return (taskProgress.get(t.id)==='done'?'✓ ':'○ ')+t.title;}
@@ -8174,10 +8536,51 @@ function fallbackFormatSql(source, indentText){
   else if(indentText==='    ') text=text.replace(/^ {7}/gm,'        ').replace(/^ {4}/gm,'    ');
   return text;
 }
-function formatSql(){const source=$('sql-format-input').value;if(!source.trim()){setFormatStatus('Вставь SQL-запрос для форматирования.',true);return;}const dialect=$('sql-format-dialect').value;const indent=$('sql-format-indent').value;const indentText=indent==='tab'?'\t':' '.repeat(Number(indent));try{const lib=window.sqlFormatter;let result='';if(lib&&typeof lib.format==='function'){try{result=lib.format(source,{language:dialect,keywordCase:'upper',tabWidth:indent==='tab'?1:Number(indent),useTabs:indent==='tab'});}catch(ex){result='';}}if(!result)result=fallbackFormatSql(source,indentText);$('sql-format-output').value=result;setFormatStatus('Готово ✨ SQL приведён к единому стилю: ключевые слова заглавными, основные части — с новой строки. Проверь логику запроса.');}catch(e){setFormatStatus('Не удалось отформатировать запрос: '+(e.message||String(e)),true);}}
-document.querySelectorAll('.sql-main-tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.sql-main-tab').forEach(b=>{const active=b===btn;b.classList.toggle('active',active);b.setAttribute('aria-selected',String(active));});const fmt=btn.dataset.mainTab==='formatter';$('sql-main-editor-panel').hidden=fmt;$('sql-main-formatter-panel').hidden=!fmt;if(fmt&& !$('sql-format-input').value.trim())$('sql-format-input').value=editor.value;}));$('sql-format-run').addEventListener('click',formatSql);$('sql-format-from-editor').addEventListener('click',()=>{$('sql-format-input').value=editor.value;setFormatStatus('Запрос скопирован из песочницы. Нажми «Форматировать SQL».');});$('sql-format-copy-back').addEventListener('click',()=>{const result=$('sql-format-output').value;if(!result.trim()){setFormatStatus('Сначала отформатируй запрос.',true);return;}editor.value=result;syncSqlHighlight();document.querySelector('[data-main-tab="editor"]').click();setStatus('Отформатированный запрос перенесён в песочницу.');});$('sql-format-copy').addEventListener('click',async()=>{const result=$('sql-format-output').value;if(!result.trim()){setFormatStatus('Нет результата для копирования.',true);return;}try{await navigator.clipboard.writeText(result);setFormatStatus('Результат скопирован в буфер обмена.');}catch(e){$('sql-format-output').focus();$('sql-format-output').select();setFormatStatus('Автокопирование недоступно в этом контексте. Результат выделен — нажми Ctrl+C.');}});
+function applySqlCaseOptions(source){
+ const keywordCase=$('sql-format-keywords').value, functionCase=$('sql-format-functions').value, typeCase=$('sql-format-types').value;
+ const keywords=new Set(('SELECT DISTINCT FROM WHERE GROUP BY HAVING ORDER LIMIT OFFSET FETCH FIRST NEXT ROWS ONLY TOP JOIN INNER LEFT RIGHT FULL OUTER CROSS NATURAL ON USING AS AND OR NOT NULL IS IN LIKE GLOB REGEXP BETWEEN EXISTS CASE WHEN THEN ELSE END CAST COLLATE ASC DESC NULLS FIRST LAST UNION ALL EXCEPT INTERSECT WITH RECURSIVE MATERIALIZED INSERT INTO VALUES DEFAULT UPDATE SET DELETE RETURNING MERGE MATCHED CREATE TEMP TEMPORARY TABLE IF NOT EXISTS PRIMARY KEY UNIQUE CHECK REFERENCES FOREIGN CONSTRAINT AUTOINCREMENT GENERATED ALWAYS IDENTITY ALTER ADD COLUMN DROP TRUNCATE VIEW INDEX PROCEDURE FUNCTION BEGIN TRANSACTION COMMIT ROLLBACK SAVEPOINT RELEASE EXPLAIN ANALYZE QUERY PLAN OVER PARTITION WINDOW FILTER DISTINCT ON CONFLICT DO NOTHING REPLACE PRAGMA VACUUM ATTACH DETACH DATABASE GRANT REVOKE USE SHOW DESCRIBE DESC LIMIT OFFSET PERCENT TIES QUALIFY ILIKE SIMILAR TO LATERAL UNNEST PIVOT UNPIVOT').split(/\s+/));
+ const types=new Set(('INT INTEGER BIGINT SMALLINT TINYINT DECIMAL NUMERIC NUMBER REAL FLOAT DOUBLE PRECISION BOOLEAN BOOL CHAR CHARACTER VARCHAR NCHAR NVARCHAR TEXT CLOB BLOB BINARY VARBINARY DATE DATETIME TIMESTAMP TIME INTERVAL JSON JSONB UUID SERIAL BIGSERIAL XML MONEY BYTEA').split(/\s+/));
+ const functions=new Set(('COUNT SUM AVG MIN MAX ROUND CEIL CEILING FLOOR ABS SQRT POWER MOD EXP LOG LN SIGN TRUNCATE TRUNC UPPER LOWER LENGTH CHAR_LENGTH SUBSTRING SUBSTR CONCAT CONCAT_WS REPLACE TRIM LTRIM RTRIM COALESCE NULLIF IFNULL ISNULL NVL CAST CONVERT DATE DATETIME STRFTIME CURRENT_DATE CURRENT_TIME CURRENT_TIMESTAMP NOW EXTRACT DATE_PART DATE_TRUNC DATEDIFF TIMESTAMPDIFF ROW_NUMBER RANK DENSE_RANK NTILE LAG LEAD FIRST_VALUE LAST_VALUE NTH_VALUE SUM AVG COUNT GROUP_CONCAT STRING_AGG ARRAY_AGG JSON_AGG JSON_OBJECT JSON_ARRAY IIF IF FORMAT').split(/\s+/));
+ const token=/--[^\n]*|\/\*[\s\S]*?\*\/|'(?:''|[^'])*'|"(?:""|[^"])*"|`(?:``|[^`])*`|\[(?:\]\]|[^\]])*\]|\b[A-Za-z_][\w$]*\b/g;
+ return source.replace(token, (word, offset, whole)=>{
+   if(word.startsWith('--')||word.startsWith('/*')||/^['"`\[]/.test(word)) return word;
+   const before=whole.slice(0,offset).replace(/\s+$/,'');
+   const after=whole.slice(offset+word.length).match(/^\s*/)[0];
+   let mode='preserve';
+   if(keywords.has(word.toUpperCase())) mode=keywordCase;
+   else if(types.has(word.toUpperCase())) mode=typeCase;
+   else if(functions.has(word.toUpperCase()) && /^\s*\(/.test(whole.slice(offset+word.length))) mode=functionCase;
+   if(mode==='upper') return word.toUpperCase();
+   if(mode==='lower') return word.toLowerCase();
+   return word;
+ });
+}
+function formatSql(){
+ const source=$('sql-format-input').value;
+ if(!source.trim()){setFormatStatus('Вставь SQL-запрос для форматирования.',true);return;}
+ const dialect=$('sql-format-dialect').value;
+ const indent=$('sql-format-indent').value;
+ const tabWidth=indent==='tab'?2:Number(indent);
+ const options={language:dialect,keywordCase:$('sql-format-keywords').value,functionCase:$('sql-format-functions').value,dataTypeCase:$('sql-format-types').value,identifierCase:$('sql-format-identifiers').value,tabWidth,useTabs:indent==='tab',indentStyle:$('sql-format-indent-style').value,logicalOperatorNewline:$('sql-format-logic').value,expressionWidth:Number($('sql-format-width').value),linesBetweenQueries:Number($('sql-format-lines').value),denseOperators:$('sql-format-dense').checked,newlineBeforeSemicolon:$('sql-format-semicolon').checked};
+ const lib=window.sqlFormatter;
+ try{
+  if(lib&&typeof lib.format==='function'){
+   // Do not silently fall back after a parser error: fallback formatting ignores dialects and can disguise invalid syntax.
+   const result=lib.format(source,options);
+   $('sql-format-output').value=applySqlCaseOptions(result);
+   setFormatStatus('Готово ✨ Применён диалект '+$('sql-format-dialect').selectedOptions[0].text+' и выбранные настройки оформления. Форматирование не проверяет логику запроса.');
+   return;
+  }
+  const indentText=indent==='tab'?'\t':' '.repeat(Number(indent));
+  $('sql-format-output').value=applySqlCaseOptions(fallbackFormatSql(source,indentText));
+  setFormatStatus('Библиотека Formatter не загрузилась. Применён упрощённый резервный форматтер: он не учитывает выбранный диалект и дополнительные настройки регистра/операторов.',true);
+ }catch(e){
+  setFormatStatus('Не удалось разобрать SQL для диалекта '+$('sql-format-dialect').selectedOptions[0].text+': '+(e.message||String(e))+'. Проверь диалект и синтаксис запроса.',true);
+ }
+}
+document.querySelectorAll('.sql-main-tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.sql-main-tab').forEach(b=>{const active=b===btn;b.classList.toggle('active',active);b.setAttribute('aria-selected',String(active));});const tab=btn.dataset.mainTab;const isEditor=tab==='editor',isFormatter=tab==='formatter',isTables=tab==='tables';$('sql-main-editor-panel').hidden=!isEditor;$('sql-main-formatter-panel').hidden=!isFormatter;$('sql-main-table-panel').hidden=!isTables;const layout=document.querySelector('#tab-sql-lab .sql-lab-layout');if(layout)layout.classList.toggle('sql-tool-fullwidth',!isEditor);const sidebar=document.querySelector('#tab-sql-lab .sql-lab-sidebar');if(sidebar)sidebar.hidden=!isEditor;const schema=$('sql-schema-bottom');if(schema)schema.hidden=!isEditor;const engineNote=$('sql-lab-engine-note');if(engineNote)engineNote.hidden=!isEditor;if(isFormatter&&!$('sql-format-input').value.trim())$('sql-format-input').value=editor.value;}));$('sql-format-run').addEventListener('click',formatSql);$('sql-format-from-editor').addEventListener('click',()=>{$('sql-format-input').value=editor.value;setFormatStatus('Запрос скопирован из песочницы. Нажми «Форматировать SQL».');});$('sql-format-copy-back').addEventListener('click',()=>{const result=$('sql-format-output').value;if(!result.trim()){setFormatStatus('Сначала отформатируй запрос.',true);return;}editor.value=result;syncSqlHighlight();document.querySelector('[data-main-tab="editor"]').click();setStatus('Отформатированный запрос перенесён в песочницу.');});$('sql-format-copy').addEventListener('click',async()=>{const result=$('sql-format-output').value;if(!result.trim()){setFormatStatus('Нет результата для копирования.',true);return;}try{await navigator.clipboard.writeText(result);setFormatStatus('Результат скопирован в буфер обмена.');}catch(e){$('sql-format-output').focus();$('sql-format-output').select();setFormatStatus('Автокопирование недоступно в этом контексте. Результат выделен — нажми Ctrl+C.');}});
 if(typeof initSqlJs!=='function'){setStatus('SQLite не загрузился: проверь интернет-соединение. Список примеров остаётся доступен, но выполнить SQL и построить схему пока нельзя.','error');return;}
-setStatus('Загружаем полноценный SQLite-движок…');initSqlJs({locateFile:file=>'https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/'+file}).then(SQLLib=>{SQL=SQLLib;makeDB($('sql-lab-db').value||'shop');}).catch(e=>setStatus('Не удалось загрузить SQLite: '+e.message+'. Примеры можно просматривать, но для выполнения SQL требуется подключение к CDN.','error'));
+setStatus('Загружаем полноценный SQLite-движок…');initSqlJs({locateFile:file=>'https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/'+file}).then(SQLLib=>{SQL=SQLLib;window.sqlJsLibrary=SQLLib;window.dispatchEvent(new Event('sqljs-library-ready'));makeDB($('sql-lab-db').value||'shop');}).catch(e=>setStatus('Не удалось загрузить SQLite: '+e.message+'. Примеры можно просматривать, но для выполнения SQL требуется подключение к CDN.','error'));
 })();
 </script>
 <style id="sql-task-repair-overrides">
@@ -8255,7 +8658,7 @@ setStatus('Загружаем полноценный SQLite-движок…');in
  }catch(e){}};
  const later=()=>{clearTimeout(saveTimer);saveTimer=setTimeout(persist,180);};
  editor.addEventListener('input',later);$('sql-lab-db')?.addEventListener('change',later);
- $('sql-format-input')?.addEventListener('input',later);$('sql-format-output')?.addEventListener('input',later);
+ $('sql-format-input')?.addEventListener('input',later);$('sql-format-output')?.addEventListener('input',later);document.querySelectorAll('#sql-main-formatter-panel select').forEach(el=>el.addEventListener('change',later));
  document.querySelectorAll('.sql-query-tab').forEach(b=>b.addEventListener('click',()=>{later();setTimeout(persist,0);}));
  // Keep examples fully explained inside the editable query as SQL comments, not only in the sidebar.
  const load=$('sql-lab-load'); if(load)load.addEventListener('click',()=>setTimeout(()=>{if(!/^\s*--\s*Как читать этот запрос/m.test(editor.value)){
@@ -8291,6 +8694,46 @@ setStatus('Загружаем полноценный SQLite-движок…');in
 #tab-sql-lab #sql-example-explanation{display:block!important;visibility:visible!important;height:auto!important;overflow:visible!important}
 #tab-sql-lab .sql-example-code{display:block;white-space:pre;overflow:auto;max-width:100%;padding:14px;border:1px solid var(--border);border-radius:10px;background:var(--bg);color:var(--text);font-size:.86rem;line-height:1.55}
 #tab-sql-lab #sql-lab-example{width:100%;max-width:100%;margin:8px 0;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text)}
+</style>
+
+<style id="table-lab-styles">
+.table-lab-panel{padding:clamp(16px,2.5vw,30px);scroll-margin-top:20px}.table-lab-header{margin-bottom:18px}.table-lab-header h2{margin:.2em 0}.table-lab-eyebrow{margin:0;color:var(--muted);font-size:.85rem;letter-spacing:.04em;text-transform:uppercase}.table-lab-warning{padding:14px 16px;border:1px solid var(--border);border-left:4px solid #d5a243;border-radius:10px;background:var(--card);margin:18px 0;line-height:1.6}.table-lab-workspace{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.85fr);gap:20px;align-items:start}.table-lab-editor-column,.table-lab-schema-column{min-width:0}.table-lab-panel textarea{box-sizing:border-box;width:100%;max-width:100%;padding:14px;border:1px solid var(--border);border-radius:10px;background:var(--input-bg,var(--card));color:var(--text);font:14px/1.65 Consolas,Monaco,monospace;tab-size:2;resize:vertical}.table-lab-actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.table-lab-actions button{border:1px solid var(--border);border-radius:9px;padding:10px 13px;background:var(--accent);color:white;font:inherit;font-weight:600;cursor:pointer}.table-lab-actions button.sql-lab-secondary{background:var(--card);color:var(--text)}.table-lab-actions button:hover{filter:brightness(.97)}.table-lab-status{padding:12px 14px;border-radius:9px;background:var(--card);border:1px solid var(--border);margin:12px 0;overflow-wrap:anywhere}.table-lab-status.is-error{border-color:#d65b5b;color:var(--text)}.table-lab-status.is-success{border-color:#31966a}.table-lab-result{overflow-x:auto}.table-lab-result .table-lab-result-block{padding:13px;border:1px solid var(--border);border-radius:10px;background:var(--card);margin:10px 0}.table-lab-result table,.table-lab-preview{width:100%;border-collapse:collapse;font-size:.9rem}.table-lab-result th,.table-lab-result td,.table-lab-preview th,.table-lab-preview td{padding:8px 10px;border-bottom:1px solid var(--border);text-align:left;vertical-align:top;overflow-wrap:anywhere}.table-lab-result th,.table-lab-preview th{background:var(--card-hover);font-weight:700}.table-lab-schema-card{border:1px solid var(--border);border-radius:10px;margin:10px 0;overflow:hidden;background:var(--card)}.table-lab-schema-card>summary{padding:12px 14px;cursor:pointer;font-weight:700;overflow-wrap:anywhere}.table-lab-schema-card>summary small{display:block;color:var(--muted);font-weight:400;margin-top:3px}.table-lab-schema-body{padding:0 12px 12px}.table-lab-schema-body table{width:100%;border-collapse:collapse;font-size:.83rem}.table-lab-schema-body th,.table-lab-schema-body td{padding:7px 5px;text-align:left;border-bottom:1px solid var(--border);overflow-wrap:anywhere}.table-lab-preview-wrap{overflow:auto;max-height:350px;margin-top:8px}.table-lab-empty{padding:14px;border:1px dashed var(--border);border-radius:10px;color:var(--muted)}.table-lab-result-note{color:var(--muted);font-size:.9rem}.table-lab-panel code{overflow-wrap:anywhere}@media(max-width:900px){.table-lab-workspace{grid-template-columns:1fr}.table-lab-schema-column{order:2}}
+</style>
+<script id="table-lab-script">
+(function(){
+ const $=id=>document.getElementById(id); const editor=$('table-lab-query'), status=$('table-lab-status'), resultBox=$('table-lab-result'), schemaBox=$('table-lab-schema');
+ if(!editor||!status||!resultBox||!schemaBox)return;
+ let SQLLib=null, userDb=null; const storageKey='kaleg1n_independent_table_lab_v1';
+ const esc=s=>String(s===null?'NULL':s===undefined?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ function setStatus(message,type=''){status.textContent=message;status.className='table-lab-status'+(type?' is-'+type:'');}
+ function quoteId(s){return '"'+String(s).replace(/"/g,'""')+'"';}
+ function persist(){try{if(userDb){const bytes=userDb.export();let binary='';for(let i=0;i<bytes.length;i+=0x8000)binary+=String.fromCharCode(...bytes.subarray(i,Math.min(i+0x8000,bytes.length)));localStorage.setItem(storageKey,btoa(binary));}}catch(e){setStatus('Запрос выполнен, но не удалось сохранить базу между перезагрузками: '+e.message,'error');}}
+ function init(){if(!SQLLib)return;try{const saved=localStorage.getItem(storageKey);if(saved){const binary=atob(saved),bytes=new Uint8Array(binary.length);for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);userDb=new SQLLib.Database(bytes);setStatus('База готова. Выполни SQL-запрос или вставь пример.');}else{userDb=new SQLLib.Database();setStatus('База готова. Выполни SQL-запрос или вставь пример.');}userDb.run('PRAGMA foreign_keys = ON;');renderSchema();}catch(e){try{if(userDb)userDb.close();}catch(_){}userDb=new SQLLib.Database();setStatus('Создана новая отдельная база: сохранённую базу не удалось прочитать ('+e.message+').','error');renderSchema();}}
+ function renderSchema(){if(!userDb){schemaBox.innerHTML='<p>Ожидаем загрузку SQLite…</p>';return;}try{const names=userDb.exec("SELECT name, type, sql FROM sqlite_master WHERE type IN ('table','view') AND name NOT LIKE 'sqlite_%' ORDER BY type, name")[0]?.values||[];if(!names.length){schemaBox.innerHTML='<div class="table-lab-empty">Пока нет таблиц. Создай первую командой <code>CREATE TABLE</code>.</div>';return;}schemaBox.innerHTML=names.map(row=>{const name=row[0],type=row[1],safe=quoteId(name),cols=userDb.exec('PRAGMA table_info('+safe+')')[0]?.values||[];let count='—';try{if(type==='table')count=userDb.exec('SELECT COUNT(*) FROM '+safe)[0].values[0][0]+' строк';else count='представление';}catch(_){}return '<details class="table-lab-schema-card" open><summary>'+esc(name)+'<small>'+cols.length+' полей · '+esc(count)+(type==='view'?' · VIEW':'')+'</small></summary><div class="table-lab-schema-body"><table><thead><tr><th>Поле</th><th>Тип</th><th>Ограничения</th></tr></thead><tbody>'+cols.map(c=>'<tr><td>'+esc(c[1])+'</td><td>'+esc(c[2]||'—')+'</td><td>'+(Number(c[5])?'Первичный ключ':'')+(Number(c[3])?' NOT NULL':'')+(c[4]!==null?' DEFAULT '+esc(c[4]):'')+'</td></tr>').join('')+'</tbody></table><button type="button" class="sql-lab-secondary table-lab-show-data" data-table="'+esc(name)+'" style="margin-top:10px">Показать данные</button><div class="table-lab-preview-wrap" hidden></div></div></details>';}).join('');schemaBox.querySelectorAll('.table-lab-show-data').forEach(btn=>btn.addEventListener('click',()=>{const wrap=btn.nextElementSibling; if(!wrap.hidden){wrap.hidden=true;btn.textContent='Показать данные';return;}try{const res=userDb.exec('SELECT * FROM '+quoteId(btn.dataset.table));if(!res.length){wrap.innerHTML='<p class="table-lab-result-note">У объекта нет выводимых строк.</p>';}else{const r=res[0], rows=r.values.slice(0,100);wrap.innerHTML='<table class="table-lab-preview"><thead><tr>'+r.columns.map(c=>'<th>'+esc(c)+'</th>').join('')+'</tr></thead><tbody>'+rows.map(row=>'<tr>'+row.map(v=>'<td>'+esc(v)+'</td>').join('')+'</tr>').join('')+'</tbody></table><p class="table-lab-result-note">'+r.values.length+' строк всего'+(r.values.length>100?' · показаны первые 100':'')+'.</p>';}wrap.hidden=false;btn.textContent='Скрыть данные';}catch(e){wrap.innerHTML='<p>Не удалось прочитать данные: '+esc(e.message)+'</p>';wrap.hidden=false;}}));}catch(e){schemaBox.innerHTML='<p>Не удалось обновить схему: '+esc(e.message)+'</p>';}}
+ function renderResults(results){if(!results||!results.length){resultBox.innerHTML='<div class="table-lab-result-block"><strong>✓ Команда выполнена</strong><p class="table-lab-result-note">Запрос не возвращает результирующих строк. Проверь блок «Мои таблицы» — структура и количество строк обновлены.</p></div>';return;}resultBox.innerHTML=results.map((r,i)=>'<div class="table-lab-result-block"><strong>Результат '+(i+1)+' · '+r.values.length+' строк</strong><div style="overflow:auto"><table><thead><tr>'+r.columns.map(c=>'<th>'+esc(c)+'</th>').join('')+'</tr></thead><tbody>'+r.values.slice(0,200).map(row=>'<tr>'+row.map(v=>'<td>'+esc(v)+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>'+(r.values.length>200?'<p class="table-lab-result-note">Показаны первые 200 строк из '+r.values.length+'.</p>':'')+'</div>').join('');}
+ function run(){if(!userDb){setStatus('SQLite ещё загружается. Подожди немного и повтори.','error');return;}const sql=editor.value;if(!sql.trim()){setStatus('Введи SQL-запрос.','error');return;}try{const results=userDb.exec(sql);renderResults(results);renderSchema();persist();setStatus('✓ SQL выполнен успешно. Учтены все команды в редакторе; таблицы и данные обновлены только в «Песочнице таблиц».','success');}catch(e){setStatus('Ошибка SQLite: '+e.message+'. Уже выполненные до ошибки команды могли сохраниться; проверь блок «Мои таблицы». Для MySQL AUTO_INCREMENT используй SQLite-вариант INTEGER PRIMARY KEY AUTOINCREMENT.','error');renderSchema();}}
+ $('table-lab-run').addEventListener('click',run);editor.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='Enter'){e.preventDefault();run();}});
+ $('table-lab-clear-query').addEventListener('click',()=>{editor.value='';editor.focus();setStatus('Редактор очищен. База данных не изменена.');});
+ $('table-lab-example').addEventListener('click',()=>{editor.value="-- Создание таблицы с авто-нумерацией в SQLite\nCREATE TABLE employees (\n    emp_id INTEGER PRIMARY KEY AUTOINCREMENT,\n    name TEXT NOT NULL,\n    position TEXT,\n    salary DECIMAL(10, 2)\n);\n\n-- Добавление записей\nINSERT INTO employees (name, position, salary) VALUES\n('Иван Петров', 'Разработчик', 120000.00),\n('Мария Смирнова', 'Дизайнер', 95000.50),\n('Алексей Кузнецов', 'Менеджер', 85000.00),\n('Ольга Иванова', 'Тестировщик', 90000.75),\n('Дмитрий Соколов', 'Аналитик', 110000.00);\n\nSELECT * FROM employees;";setStatus('Пример вставлен в редактор. Если таблица employees уже существует, INSERT добавит ещё пять строк. Для чистого старта выполни DROP TABLE employees; отдельно или сбрось базу.');});
+ $('table-lab-reset-db').addEventListener('click',()=>{if(!confirm('Полностью удалить все таблицы и данные только из «Песочницы таблиц»? Это действие нельзя отменить.'))return;try{if(userDb)userDb.close();userDb=new SQLLib.Database();userDb.run('PRAGMA foreign_keys = ON;');localStorage.removeItem(storageKey);resultBox.innerHTML='';renderSchema();setStatus('Твоя рабочая база очищена. Основная учебная база не затронута.','success');}catch(e){setStatus('Не удалось сбросить базу: '+e.message,'error');}});
+ function acceptLib(){if(window.sqlJsLibrary&&!SQLLib){SQLLib=window.sqlJsLibrary;init();}}window.addEventListener('sqljs-library-ready',acceptLib);acceptLib();
+ if(!SQLLib){setStatus('Ожидаем загрузку SQLite из основной песочницы…');setTimeoutFallback();}
+ function setTimeoutFallback(){/* no timer needed: the ready event initializes this workspace */}
+})();
+</script>
+
+
+<style id="sql-main-tabs-layout-fix">
+/* На вкладках инструментов основная колонка занимает всю ширину; скрытые панели не участвуют в раскладке. */
+#tab-sql-lab .sql-lab-layout.sql-tool-fullwidth{grid-template-columns:minmax(0,1fr)!important;width:100%;}
+#tab-sql-lab .sql-lab-layout.sql-tool-fullwidth>.sql-lab-main{grid-column:1 / -1;width:100%;min-width:0;box-sizing:border-box;}
+#tab-sql-lab #sql-main-editor-panel[hidden],
+#tab-sql-lab #sql-main-formatter-panel[hidden],
+#tab-sql-lab #sql-main-table-panel[hidden]{display:none!important;}
+#tab-sql-lab #sql-main-formatter-panel:not([hidden]),
+#tab-sql-lab #sql-main-table-panel:not([hidden]){width:100%;min-width:0;max-width:none;box-sizing:border-box;}
+#tab-sql-lab #sql-main-formatter-panel .sql-format-workspace,
+#tab-sql-lab #sql-main-formatter-panel .sql-format-layout{width:100%;max-width:none;}
 </style>
 </body>
 </html>
@@ -8476,30 +8919,23 @@ setStatus('Загружаем полноценный SQLite-движок…');in
  clearAll(testQueryFor($('sql-lab-db')?.value||'shop'));
  // makeDB вызывает эту функцию после построения схемы, в том числе при первой загрузке SQLite.
  window.sqlLoadDatabaseTestQuery=()=>clearAll(testQueryFor($('sql-lab-db')?.value||'shop'));
- // Add one-click insertion for SQL snippets in learning/reference material. Each snippet loads into Query 1.
- const lab=$('tab-sql-lab');
- document.querySelectorAll('pre code').forEach(code=>{
-   if(lab&&lab.contains(code))return;
-   const pre=code.closest('pre');if(!pre||pre.dataset.sqlAutoInsert==='1')return;
-   const sql=String(code.innerText||code.textContent||'').trim();
-   if(!/\b(SELECT|INSERT\s+INTO|UPDATE\s+\w+\s+SET|DELETE\s+FROM|CREATE\s+TABLE|WITH)\b/i.test(sql))return;
-   pre.dataset.sqlAutoInsert='1';
-   const btn=document.createElement('button');btn.type='button';btn.className='sql-lab-secondary sql-material-insert';btn.textContent='Вставить пример в Запрос 1';btn.style.cssText='margin:8px 0;padding:7px 10px;border:1px solid var(--border);border-radius:8px;cursor:pointer';
-   btn.addEventListener('click',()=>{
-     const tab=$('tab-sql-lab');
-     const nav=[...document.querySelectorAll('[data-tab-target], [data-tab], .tab-button, .nav-tab')].find(x=>/sql/i.test((x.textContent||'').trim()));
-     if(nav)nav.click();
-     clearAll();editor.value=sql;buffers[0]=sql;sync();
-     document.querySelector('[data-main-tab="editor"]')?.click();
-     document.querySelector('[data-side-tab="database"]')?.click();
-     editor.focus();
-   });
-   pre.insertAdjacentElement('afterend',btn);
- });
+ // SQL examples outside the sandbox remain read-only examples; do not inject editor buttons.
  // First-load defaults: only Query 1 is initialized; secondary tabs start blank.
  buffers=['','',''];active=0;
  const persistedKey='kaleg1_sql_workspace_v2';
  try{const saved=JSON.parse(localStorage.getItem(persistedKey)||'{}');if(saved.queries){saved.queries=['','',''];saved.active=0;localStorage.setItem(persistedKey,JSON.stringify(saved));}}catch(e){}
 })();
 </script>
-<style id="sql-material-insert-style">.sql-material-insert{display:inline-block!important;font:inherit!important;background:var(--card)!important;color:var(--text)!important}.sql-material-insert:hover{border-color:var(--accent)!important}</style>
+
+
+<style id="table-lab-usability-fixes">
+#tab-sql-lab .sql-lab-sidebar[hidden],#tab-sql-lab #sql-schema-bottom[hidden],#tab-sql-lab #sql-lab-engine-note[hidden]{display:none!important}
+#tab-sql-lab .table-lab-header{margin:0 0 10px}
+#tab-sql-lab .table-lab-header h3{margin:0 0 5px}
+#tab-sql-lab .table-lab-header p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.5}
+#tab-sql-lab .table-lab-warning{margin:10px 0 14px;padding:10px 13px;font-size:.88rem}
+#tab-sql-lab .table-lab-command-help{margin:10px 0;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--card)}
+#tab-sql-lab .table-lab-command-help summary{cursor:pointer;font-weight:700}
+#tab-sql-lab .table-lab-command-help p{margin:8px 0;font-size:.86rem;line-height:1.5}
+#tab-sql-lab #table-lab-query:placeholder-shown{min-height:220px}
+</style>
